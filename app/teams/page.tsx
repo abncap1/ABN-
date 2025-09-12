@@ -10,13 +10,14 @@ import { motion } from 'framer-motion';
 import { ScrollReveal, StaggerContainer } from '@/components/scroll-reveal';
 import { AnimatedCounter } from '@/components/animated-counter';
 import AnimatedTeamShowcase from '@/components/animated-team-showcase';
+import Image from 'next/image';
 
 const teamMembers = [
   {
     id: 1,
     name: 'Aniket Nikumb',
     position: 'Chief Investment Officer',
-    image: 'https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg',
+    image: '/assets/IMG.JPG.jpg',
     bio: 'Sarah brings over 15 years of institutional investment experience, having previously managed portfolios at leading investment firms. She holds a CFA designation and MBA from Wharton.',
     expertise: ['Portfolio Strategy', 'Risk Management', 'ESG Investing'],
     education: 'CA, CFA',
@@ -25,71 +26,19 @@ const teamMembers = [
     linkedin: 'https://www.linkedin.com/in/aniketnikumb/?originalSubdomain=in',
     color: 'from-blue-500/10 to-blue-600/10'
   },
-  // {
-  //   id: 2,
-  //   name: 'Michael Rodriguez',
-  //   position: 'Senior Portfolio Manager',
-  //   image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg',
-  //   bio: 'Michael specializes in quantitative analysis and algorithmic trading strategies. His innovative approach to market analysis has consistently delivered superior risk-adjusted returns.',
-  //   expertise: ['Quantitative Analysis', 'Algorithmic Trading', 'Market Research'],
-  //   education: 'PhD Financial Engineering, Stanford University',
-  //   achievements: ['Published 20+ research papers', 'Developed proprietary trading algorithms', 'Winner of CFA Institute Research Challenge'],
-  //   email: 'michael.rodriguez@abncapital.com',
-  //   linkedin: 'https://linkedin.com/in/michaelrodriguez',
-  //   color: 'from-green-500/10 to-green-600/10'
-  // },
-  // {
-  //   id: 3,
-  //   name: 'Emily Watson',
-  //   position: 'Head of Client Relations',
-  //   image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
-  //   bio: 'Emily ensures our clients receive exceptional service and customized investment solutions. Her client-first approach has earned her recognition as a top relationship manager.',
-  //   expertise: ['Client Strategy', 'Wealth Planning', 'Relationship Management'],
-  //   education: 'Master of Finance, MIT Sloan',
-  //   achievements: ['Client Service Excellence Award', 'Certified Wealth Manager', '99% client satisfaction rating'],
-  //   email: 'emily.watson@abncapital.com',
-  //   linkedin: 'https://linkedin.com/in/emilywatson',
-  //   color: 'from-purple-500/10 to-purple-600/10'
-  // },
-  // {
-  //   id: 4,
-  //   name: 'David Kim',
-  //   position: 'Technology Director',
-  //   image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
-  //   bio: 'David leads our technology initiatives, developing cutting-edge fintech solutions that give our clients and team competitive advantages in the market.',
-  //   expertise: ['Financial Technology', 'Data Analytics', 'System Architecture'],
-  //   education: 'MS Computer Science, Carnegie Mellon',
-  //   achievements: ['Led development of AI trading platform', 'Former tech lead at major fintech companies', 'Multiple fintech patents'],
-  //   email: 'david.kim@abncapital.com',
-  //   linkedin: 'https://linkedin.com/in/davidkim',
-  //   color: 'from-orange-500/10 to-orange-600/10'
-  // },
-  // {
-  //   id: 5,
-  //   name: 'Lisa Thompson',
-  //   position: 'Head of Research',
-  //   image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg',
-  //   bio: 'Lisa oversees our research division, providing deep market insights and investment recommendations that drive our portfolio strategies.',
-  //   expertise: ['Market Research', 'Economic Analysis', 'Investment Strategy'],
-  //   education: 'PhD Economics, Harvard University',
-  //   achievements: ['Former Federal Reserve economist', 'Regularly featured in financial media', 'Author of "Modern Portfolio Theory in Practice"'],
-  //   email: 'lisa.thompson@abncapital.com',
-  //   linkedin: 'https://linkedin.com/in/lisathompson',
-  //   color: 'from-red-500/10 to-red-600/10'
-  // },
-  // {
-  //   id: 6,
-  //   name: 'James Foster',
-  //   position: 'Risk Management Director',
-  //   image: 'https://images.pexels.com/photos/2182969/pexels-photo-2182969.jpeg',
-  //   bio: 'James specializes in comprehensive risk assessment and management, ensuring our investment strategies maintain optimal risk-return profiles.',
-  //   expertise: ['Risk Assessment', 'Compliance', 'Regulatory Affairs'],
-  //   education: 'Master of Risk Management, NYU Stern',
-  //   achievements: ['Certified Risk Manager (CRM)', 'Former bank risk officer', 'Risk management thought leader'],
-  //   email: 'james.foster@abncapital.com',
-  //   linkedin: 'https://linkedin.com/in/jamesfoster',
-  //   color: 'from-teal-500/10 to-teal-600/10'
-  // }
+  {
+    id: 2,
+    name: 'Apurva Iyer',
+    position: 'Partner',
+    image: '/assets/IMG.JPG.jpg',
+    bio: 'Unique combination of scientific and corporate leadership experience',
+    expertise: ['Portfolio Strategy', 'Risk Management', 'ESG Investing'],
+    education: 'CA, CFA',
+    achievements: ['CFA Charterholder', 'Top 40 Under 40 Finance Professional', 'Published researcher on sustainable investing'],
+    email: 'apurva@abncapital.in',
+    linkedin: 'https://www.linkedin.com/in/apurvaiyer/?originalSubdomain=in',
+    color: 'from-blue-500/10 to-blue-600/10'
+  },
 ];
 
 const teamStats = [
@@ -176,12 +125,14 @@ export default function Teams() {
                   />
                   
                   <CardContent className="p-0 relative z-10">
-                    <div className="relative overflow-hidden">
-                      <motion.img
+                    <div className="relative w-full h-64 overflow-hidden">
+                      <Image
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                        whileHover={{ scale: 1.05 }}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        priority={index === 0}
                       />
                       
                       {/* Overlay */}
@@ -269,13 +220,15 @@ export default function Teams() {
                             transition={{ duration: 0.3 }}
                           >
                             <div className="flex items-start space-x-4">
-                              <motion.img
-                                src={member.image}
-                                alt={member.name}
-                                className="w-24 h-24 rounded-full object-cover"
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ duration: 0.3 }}
-                              />
+                              <div className="relative w-24 h-24">
+                                <Image
+                                  src={member.image}
+                                  alt={member.name}
+                                  fill
+                                  sizes="96px"
+                                  className="rounded-full object-cover"
+                                />
+                              </div>
                               <div>
                                 <h3 className="text-lg font-semibold text-primary">{member.position}</h3>
                                 <p className="text-muted-foreground">{member.education}</p>

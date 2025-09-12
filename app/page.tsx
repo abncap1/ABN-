@@ -148,7 +148,7 @@ export default function Home() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                growth story
+                Frenzied Growth
               </motion.span>
             </motion.h1>
             
@@ -158,7 +158,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              Experience sophisticated portfolio management with personalized strategies designed to maximize returns while managing risk in today's dynamic markets.
+              Investing where Chaos sparks Opportunity… 
             </motion.p>
             
             <motion.div
