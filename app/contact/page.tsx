@@ -35,13 +35,6 @@ const contactInfo = [
     color: 'text-purple-600',
     bgColor: 'from-purple-500/10 to-purple-600/10'
   },
-  {
-    icon: Clock,
-    title: 'Business Hours',
-    details: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 10:00 AM - 2:00 PM', 'Sunday: Closed'],
-    color: 'text-orange-600',
-    bgColor: 'from-orange-500/10 to-orange-600/10'
-  }
 ];
 
 const benefits = [
@@ -129,7 +122,7 @@ export default function Contact() {
       {/* Contact Info Cards */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={info.title}
@@ -277,46 +270,6 @@ export default function Contact() {
                         />
                       </motion.div>
 
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <motion.div
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.6 }}
-                        >
-                          <Label htmlFor="investmentAmount">Investment Amount</Label>
-                          <Select onValueChange={(value) => handleSelectChange('investmentAmount', value)}>
-                            <SelectTrigger className="mt-1">
-                              <SelectValue placeholder="Select range" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="100k-500k">$100K - $500K</SelectItem>
-                              <SelectItem value="500k-1m">$500K - $1M</SelectItem>
-                              <SelectItem value="1m-5m">$1M - $5M</SelectItem>
-                              <SelectItem value="5m+">$5M+</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </motion.div>
-                        <motion.div
-                          initial={{ opacity: 0, x: 20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.7 }}
-                        >
-                          <Label htmlFor="serviceType">Service Interest</Label>
-                          <Select onValueChange={(value) => handleSelectChange('serviceType', value)}>
-                            <SelectTrigger className="mt-1">
-                              <SelectValue placeholder="Select service" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="portfolio-management">Portfolio Management</SelectItem>
-                              <SelectItem value="wealth-planning">Wealth Planning</SelectItem>
-                              <SelectItem value="risk-management">Risk Management</SelectItem>
-                              <SelectItem value="investment-advisory">Investment Advisory</SelectItem>
-                              <SelectItem value="other">Other</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </motion.div>
-                      </div>
-
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -401,7 +354,7 @@ export default function Contact() {
               </motion.div>
 
               {/* Quick Contact */}
-              <motion.div
+              {/* <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -442,7 +395,7 @@ export default function Contact() {
                     </ul>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </motion.div> */}
             </ScrollReveal>
           </div>
         </div>
