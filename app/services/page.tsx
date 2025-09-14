@@ -26,6 +26,7 @@ import {
   FileText,
   Phone,
   TrendingDown,
+  Factory,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -327,195 +328,202 @@ const sections = [
     id: "investment-framework",
     title: "Investment Framework",
     content: (
-      <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900 dark:via-indigo-900 dark:to-purple-900">
+      <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50 dark:from-blue-900 dark:via-teal-900 dark:to-cyan-900">
+
         {/* Content */}
-        <div className="relative z-10 flex h-full items-center justify-center px-8">
-          <div className="max-w-7xl mx-auto text-slate-800 dark:text-white">
-            {/* Header */}
+        <div className="relative z-10 flex h-full items-center justify-center px-4 md:px-8">
+          <div className="max-w-7xl mx-auto text-slate-800 dark:text-white w-full">
+            {/* Header - Made more compact */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-center mb-16"
+              className="mb-6 md:mb-12"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl">
-                <Scale className="h-10 w-10 text-white" />
-              </div>
-
-              <h1 className="text-4xl md:text-5xl font-bold mb-8">
-                <span className="text-slate-800 dark:text-white/90">
-                  Investment
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-300 dark:to-purple-300">
-                  Framework
-                </span>
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8 text-slate-800 dark:text-white">
+                Investment Framework
               </h1>
-
-              <blockquote className="text-xl md:text-2xl font-light italic mb-4 leading-relaxed">
-                <span className="bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent dark:from-blue-200 dark:to-purple-200">
-                  "Price is what you pay. Value is what you get."
-                </span>
-                <br />
-                <span className="text-base font-medium text-slate-600 dark:text-white/80">
-                  - Warren E. Buffett
-                </span>
-              </blockquote>
             </motion.div>
 
-            <div className="grid lg:grid-cols-3 gap-12 items-center">
-              {/* Uncontrollables */}
+            <div className="grid lg:grid-cols-12 gap-4 md:gap-8 items-center">
+              {/* Left Side - 3D Visualization - Made more compact */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
+                transition={{ duration: 1, delay: 0.4 }}
+                className="lg:col-span-5 mb-6 lg:mb-0"
               >
-                <motion.div
-                  className="group bg-red-50/80 dark:bg-red-500/10 backdrop-blur-xl rounded-2xl p-8 border border-red-200/50 dark:border-red-400/30 hover:bg-red-50/90 dark:hover:bg-red-500/15 transition-all duration-500 shadow-lg"
-                  whileHover={{ scale: 1.02, rotateY: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h3 className="text-2xl font-bold mb-8 text-red-700 dark:text-red-300 text-center">
-                    Uncontrollables ("Value")
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="flex items-center group-hover:translate-x-2 transition-transform duration-300">
-                      <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center mr-4">
-                        <Building className="h-6 w-6 text-red-600 dark:text-red-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-red-700 dark:text-red-300">
-                          Racetrack
-                        </h4>
-                        <p className="text-slate-600 dark:text-white/80 text-sm">
-                          Industry
-                        </p>
-                      </div>
+                <div className="relative bg-gradient-to-br from-slate-900 to-black rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden">
+                  {/* 3D Cube Visualization */}
+                  <div className="relative h-64 md:h-96 flex items-center justify-center">
+                    {/* Background particles */}
+                    <div className="absolute inset-0">
+                      {[...Array(15)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-1 h-1 md:w-2 md:h-2 bg-teal-400/30 rounded-full"
+                          style={{
+                            left: `${Math.random() * 100}%`,
+                            top: `${Math.random() * 100}%`,
+                          }}
+                          animate={{
+                            opacity: [0.2, 0.8, 0.2],
+                            scale: [1, 1.5, 1],
+                          }}
+                          transition={{
+                            duration: 3 + Math.random() * 2,
+                            repeat: Number.POSITIVE_INFINITY,
+                            delay: Math.random() * 2,
+                          }}
+                        />
+                      ))}
                     </div>
-                    <div className="flex items-center group-hover:translate-x-2 transition-transform duration-300">
-                      <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center mr-4">
-                        <TrendingUp className="h-6 w-6 text-red-600 dark:text-red-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-red-700 dark:text-red-300">
-                          Horse
-                        </h4>
-                        <p className="text-slate-600 dark:text-white/80 text-sm">
-                          Company
-                        </p>
-                      </div>
+
+                    {/* 3D Cubes */}
+                    <div className="relative">
+                      <motion.div
+                        className="relative"
+                        animate={{
+                          rotateY: [0, 360],
+                          rotateX: [0, 15, 0],
+                        }}
+                        transition={{
+                          duration: 20,
+                          repeat: Number.POSITIVE_INFINITY,
+                          ease: "linear",
+                        }}
+                      >
+                        {/* Main cube structure */}
+                        <div className="relative w-24 h-24 md:w-32 md:h-32">
+                          <div className="absolute inset-0 border-2 border-teal-400/40 transform rotate-12 scale-110"></div>
+                          <div className="absolute inset-2 border-2 border-teal-400/60 transform -rotate-6 scale-90"></div>
+                          <div className="absolute inset-4 border-2 border-teal-400/80 transform rotate-3"></div>
+                        </div>
+                      </motion.div>
                     </div>
-                    <div className="flex items-center group-hover:translate-x-2 transition-transform duration-300">
-                      <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center mr-4">
-                        <Users className="h-6 w-6 text-red-600 dark:text-red-400" />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Right Side - Framework Content - Made more compact and responsive */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="lg:col-span-7"
+              >
+                <div className="grid md:grid-cols-2 gap-4 md:gap-8">
+                  {/* Uncontrollables */}
+                  <div>
+                    <h3 className="text-lg md:text-2xl font-bold mb-4 md:mb-6 text-slate-800 dark:text-white border-b-2 border-teal-300 dark:border-teal-600 pb-2">
+                      Uncontrollables ("Value")
+                    </h3>
+
+                    <div className="space-y-3 md:space-y-6">
+                      {/* Racetrack */}
+                      <div className="flex items-start space-x-3 md:space-x-4">
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Factory className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-base md:text-lg text-slate-800 dark:text-white">
+                            Racetrack: Industry
+                          </h4>
+                          <ul className="text-xs md:text-sm text-slate-600 dark:text-white/80 mt-1 md:mt-2 space-y-1">
+                            <li>• Market growth and profit pool</li>
+                            <li>• Tailwinds/ Disruption risk</li>
+                          </ul>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-red-700 dark:text-red-300">
-                          Jockey
-                        </h4>
-                        <p className="text-slate-600 dark:text-white/80 text-sm">
-                          Management Team
-                        </p>
+
+                      {/* Horse */}
+                      <div className="flex items-start space-x-3 md:space-x-4">
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Building className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-base md:text-lg text-slate-800 dark:text-white">
+                            Horse: Company
+                          </h4>
+                          <ul className="text-xs md:text-sm text-slate-600 dark:text-white/80 mt-1 md:mt-2 space-y-1">
+                            <li>• Differentiation/ Moat</li>
+                            <li>• Market share</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Jockey */}
+                      <div className="flex items-start space-x-3 md:space-x-4">
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Users className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-base md:text-lg text-slate-800 dark:text-white">
+                            Jockey: Promoter/ Management
+                          </h4>
+                          <ul className="text-xs md:text-sm text-slate-600 dark:text-white/80 mt-1 md:mt-2 space-y-1">
+                            <li>• Values</li>
+                            <li>• Incentives</li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </motion.div>
-              </motion.div>
 
-              {/* Center - Image with Scale */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.4 }}
-                className="flex flex-col items-center"
-              >
-                <div className="relative mb-8">
-                  <img
-                    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
-                    alt="Investment analysis"
-                    className="w-64 h-64 object-cover rounded-full shadow-2xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent rounded-full" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20">
-                      <p className="text-white text-xs text-center font-medium">
-                        Balanced Analysis
-                      </p>
+                  {/* Controllables */}
+                  <div>
+                    <h3 className="text-lg md:text-2xl font-bold mb-4 md:mb-6 text-slate-800 dark:text-white border-b-2 border-teal-300 dark:border-teal-600 pb-2">
+                      Controllable ("Price")
+                    </h3>
+
+                    <div className="space-y-3 md:space-y-6">
+                      <div className="flex items-start space-x-3 md:space-x-4">
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <BarChart3 className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-base md:text-lg text-slate-800 dark:text-white">
+                            Valuations, with the context of:
+                          </h4>
+                          <ul className="text-xs md:text-sm text-slate-600 dark:text-white/80 mt-1 md:mt-2 space-y-1">
+                            <li>• Last reported earnings</li>
+                            <li>• Forward projections: Revenue/ EBITDA/ PAT/ FCF (12-24m)</li>
+                            <li>• Step-jump in Capacity addition</li>
+                            <li>• Inflections due to macro such as tariffs, interest rates etc.</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
+                {/* Bottom Quote - Made more compact */}
                 <motion.div
-                  className="relative"
-                  animate={{ rotate: [-3, 3, -3] }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1 }}
+                  className="mt-4 md:mt-8"
                 >
-                  <Scale className="h-16 w-16 text-blue-600 dark:text-blue-400" />
-                </motion.div>
-              </motion.div>
-
-              {/* Controllables */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
-              >
-                <motion.div
-                  className="group bg-green-50/80 dark:bg-green-500/10 backdrop-blur-xl rounded-2xl p-8 border border-green-200/50 dark:border-green-400/30 hover:bg-green-50/90 dark:hover:bg-green-500/15 transition-all duration-500 shadow-lg"
-                  whileHover={{ scale: 1.02, rotateY: -5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h3 className="text-2xl font-bold mb-8 text-green-700 dark:text-green-300 text-center">
-                    Controllables ("Price")
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="flex items-center group-hover:translate-x-2 transition-transform duration-300">
-                      <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4">
-                        <IndianRupee className="h-6 w-6 text-green-600 dark:text-green-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-green-700 dark:text-green-300">
-                          Odds
-                        </h4>
-                        <p className="text-slate-600 dark:text-white/80 text-sm">
-                          Valuation / Entry Price
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-center group-hover:translate-x-2 transition-transform duration-300">
-                      <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4">
-                        <Target className="h-6 w-6 text-green-600 dark:text-green-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-green-700 dark:text-green-300">
-                          Position Sizing
-                        </h4>
-                        <p className="text-slate-600 dark:text-white/80 text-sm">
-                          Risk Management
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-center group-hover:translate-x-2 transition-transform duration-300">
-                      <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4">
-                        <Shield className="h-6 w-6 text-green-600 dark:text-green-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-green-700 dark:text-green-300">
-                          Timing
-                        </h4>
-                        <p className="text-slate-600 dark:text-white/80 text-sm">
-                          Entry & Exit Strategy
-                        </p>
-                      </div>
-                    </div>
+                  <div className="bg-gradient-to-r from-teal-800 to-cyan-800 dark:from-teal-900 dark:to-cyan-900 rounded-xl md:rounded-2xl p-4 md:p-6 text-white text-center">
+                    <p className="text-sm md:text-lg font-semibold">
+                      Nothing will be perfect across all parameters....our objective is to make judgement on, and buy
+                      the best "bang for our buck"!
+                    </p>
                   </div>
                 </motion.div>
               </motion.div>
             </div>
+
+            {/* Footer */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.2 }}
+              className="absolute bottom-4 md:bottom-8 left-4 md:left-8 right-4 md:right-8 flex justify-between items-center text-xs md:text-sm text-slate-400 dark:text-white/70"
+            >
+              <span>15</span>
+              <span>2025 Proprietary and Confidential</span>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -527,125 +535,166 @@ const sections = [
     id: "portfolio-construction",
     title: "Portfolio Construction",
     content: (
-      <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 dark:from-emerald-900 dark:via-teal-900 dark:to-green-900">
+      <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-emerald-900 dark:via-green-900 dark:to-teal-900">
+
         {/* Content */}
-        <div className="relative z-10 flex h-full items-center justify-center px-8">
-          <div className="max-w-7xl mx-auto text-slate-800 dark:text-white">
-            {/* Header */}
+        <div className="relative z-10 flex h-full items-center justify-center px-4 md:px-8">
+          <div className="max-w-7xl mx-auto text-slate-800 dark:text-white w-full">
+            {/* Header - Made more compact */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-center mb-16"
+              className="mb-6 md:mb-12"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl">
-                <BarChart3 className="h-10 w-10 text-white" />
-              </div>
-
-              <h1 className="text-4xl md:text-5xl font-bold mb-8">
-                <span className="text-slate-800 dark:text-white/90">
-                  Portfolio
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent dark:from-emerald-300 dark:to-teal-300">
-                  Construction
-                </span>
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8 text-slate-800 dark:text-white">
+                Portfolio Construction
               </h1>
-
-              <blockquote className="text-lg md:text-xl font-light italic mb-4 leading-relaxed max-w-4xl mx-auto">
-                <span className="bg-gradient-to-r from-emerald-700 to-teal-700 bg-clip-text text-transparent dark:from-emerald-200 dark:to-teal-200">
-                  "Opportunities come infrequently. When it rains gold, put out
-                  the bucket, not the thimble."
-                </span>
-                <br />
-                <span className="text-base font-medium text-slate-600 dark:text-white/80">
-                  - Warren E. Buffett
-                </span>
-              </blockquote>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left Side - Categories */}
+            <div className="grid lg:grid-cols-12 gap-4 md:gap-8 items-center">
+              {/* Left Side - Warren Buffett Quote with Image - Made more compact */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                className="lg:col-span-2"
+                transition={{ duration: 1, delay: 0.4 }}
+                className="lg:col-span-5 mb-6 lg:mb-0"
               >
-                {/* Portfolio Categories Grid */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  <motion.div
-                    className="group bg-white/80 dark:bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-emerald-200/50 dark:border-white/20 text-center hover:bg-white/90 dark:hover:bg-white/15 transition-all duration-500 shadow-lg"
-                    whileHover={{ scale: 1.05, rotateY: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-500/30 transition-colors duration-300">
-                      <TrendingUp className="h-8 w-8 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-emerald-700 dark:text-emerald-300">
-                      Compounders (20-40%) 15-20% IRR | 2-5 years
-                    </h3>
-                    <p className="text-slate-600 dark:text-white/80 text-sm leading-relaxed">
-                      Sector leaders with strong market positioning, history of
-                      navigating downturns and established management
-                    </p>
-                  </motion.div>
+                <div className="relative">
+                  {/* Black and white image */}
+                  <div className="relative overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl mb-4 md:mb-6">
+                    <img
+                      src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg"
+                      alt="Professional analyzing charts"
+                      className="w-full h-48 md:h-80 object-cover grayscale"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  </div>
 
-                  <motion.div
-                    className="group bg-white/80 dark:bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-yellow-200/50 dark:border-white/20 text-center hover:bg-white/90 dark:hover:bg-white/15 transition-all duration-500 shadow-lg"
-                    whileHover={{ scale: 1.05, rotateY: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-500/30 transition-colors duration-300">
-                      <Zap className="h-8 w-8 text-yellow-600 dark:text-yellow-400" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-yellow-700 dark:text-yellow-300">
-                      Challengers (20-40%) 15-25% IRR | 2-5 years
-                    </h3>
-                    <p className="text-slate-600 dark:text-white/80 text-sm leading-relaxed">
-                      Typical #2, 3 or 4 player in the industry aspiring to
-                      upgrade business its positioning, typically at ~40-60%
-                      discount to leader
+                  {/* Warren Buffett Quote */}
+                  <div className="bg-gradient-to-r from-emerald-200 to-green-200 dark:from-emerald-800 dark:to-green-800 rounded-xl md:rounded-2xl p-4 md:p-6 relative">
+                    <Quote className="h-6 w-6 md:h-8 md:w-8 text-emerald-600 dark:text-emerald-300 mb-3 md:mb-4" />
+                    <blockquote className="text-lg md:text-xl font-medium italic text-slate-800 dark:text-white leading-relaxed mb-3 md:mb-4">
+                      "When it rains gold, put out the bucket not the thimble"
+                    </blockquote>
+                    <p className="text-right text-emerald-700 dark:text-emerald-300 font-semibold text-sm md:text-base">
+                      - Warren E. Buffett
                     </p>
-                  </motion.div>
-
-                  <motion.div
-                    className="group bg-white/80 dark:bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-blue-200/50 dark:border-white/20 text-center hover:bg-white/90 dark:hover:bg-white/15 transition-all duration-500 shadow-lg"
-                    whileHover={{ scale: 1.05, rotateY: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-500/30 transition-colors duration-300">
-                      <Target className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-blue-700 dark:text-blue-300">
-                      Turnarounds (15-30%) 50-200% Upside | 1-2 years
-                    </h3>
-                    <p className="text-slate-600 dark:text-white/80 text-sm leading-relaxed">
-                      Significant revival of fortunes due to a catalyst such as
-                      policy change, new management, takeover or balance sheet
-                      repair
-                    </p>
-                  </motion.div>
-
-                  <motion.div
-                    className="group bg-white/80 dark:bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-purple-200/50 dark:border-white/20 text-center hover:bg-white/90 dark:hover:bg-white/15 transition-all duration-500 shadow-lg"
-                    whileHover={{ scale: 1.05, rotateY: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-500/30 transition-colors duration-300">
-                      <Star className="h-8 w-8 text-purple-600 dark:text-purple-400" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-purple-700 dark:text-purple-300">
-                      Special Situations (0-15%) 50-200% Upside | 3-9 months
-                    </h3>
-                    <p className="text-slate-600 dark:text-white/80 text-sm leading-relaxed">
-                      Unique opportunities arising from corporate events,
-                      spin-offs, and market dislocations
-                    </p>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
+
+              {/* Right Side - Portfolio Categories - Made more compact and responsive */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="lg:col-span-7"
+              >
+                <div className="space-y-3 md:space-y-4">
+                  {/* Compounders */}
+                  <div className="flex items-center space-x-3 md:space-x-4">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center font-bold text-slate-800 flex-shrink-0 text-sm md:text-base">
+                      1
+                    </div>
+                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+                      <div className="bg-gradient-to-r from-emerald-600 to-green-600 text-white p-3 md:p-4 rounded-lg">
+                        <h4 className="font-bold text-base md:text-lg">Compounders (20-40%)</h4>
+                        <p className="text-xs md:text-sm opacity-90">15-20% IRR | 2-5 years</p>
+                      </div>
+                      <div className="bg-white/80 dark:bg-white/10 p-3 md:p-4 rounded-lg border border-emerald-200 dark:border-white/20">
+                        <p className="text-xs md:text-sm text-slate-600 dark:text-white/80">
+                          Sector leaders with strong market positioning, history of navigating downturns and established
+                          management
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Challengers */}
+                  <div className="flex items-center space-x-3 md:space-x-4">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center font-bold text-slate-800 flex-shrink-0 text-sm md:text-base">
+                      2
+                    </div>
+                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+                      <div className="bg-gradient-to-r from-emerald-700 to-green-700 text-white p-3 md:p-4 rounded-lg">
+                        <h4 className="font-bold text-base md:text-lg">Challengers (20-40%)</h4>
+                        <p className="text-xs md:text-sm opacity-90">15-25% IRR | 2-5 years</p>
+                      </div>
+                      <div className="bg-white/80 dark:bg-white/10 p-3 md:p-4 rounded-lg border border-emerald-200 dark:border-white/20">
+                        <p className="text-xs md:text-sm text-slate-600 dark:text-white/80">
+                          Typical #2, 3 or 4 player in the industry aspiring to upgrade business its positioning,
+                          typically at ~40-60% discount to leader
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Turnarounds */}
+                  <div className="flex items-center space-x-3 md:space-x-4">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center font-bold text-slate-800 flex-shrink-0 text-sm md:text-base">
+                      3
+                    </div>
+                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+                      <div className="bg-gradient-to-r from-emerald-800 to-green-800 text-white p-3 md:p-4 rounded-lg">
+                        <h4 className="font-bold text-base md:text-lg">Turnarounds (15-30%)</h4>
+                        <p className="text-xs md:text-sm opacity-90">50-200% Upside | 1-2 years</p>
+                      </div>
+                      <div className="bg-white/80 dark:bg-white/10 p-3 md:p-4 rounded-lg border border-emerald-200 dark:border-white/20">
+                        <p className="text-xs md:text-sm text-slate-600 dark:text-white/80">
+                          Significant revival of fortunes due to a catalyst such as policy change, new management,
+                          takeover or balance sheet repair
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Special Situations */}
+                  <div className="flex items-center space-x-3 md:space-x-4">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center font-bold text-slate-800 flex-shrink-0 text-sm md:text-base">
+                      4
+                    </div>
+                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+                      <div className="bg-gradient-to-r from-emerald-300 to-green-300 text-slate-800 p-3 md:p-4 rounded-lg">
+                        <h4 className="font-bold text-base md:text-lg">Special Situations (0-15%)</h4>
+                        <p className="text-xs md:text-sm opacity-90">50-200% Upside | 3-9 months</p>
+                      </div>
+                      <div className="bg-white/80 dark:bg-white/10 p-3 md:p-4 rounded-lg border border-emerald-200 dark:border-white/20">
+                        <p className="text-xs md:text-sm text-slate-600 dark:text-white/80">
+                          Merger/ Demerger, Spin off, Change of management, tender offer, restructuring etc. creating an
+                          investment opportunity
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Summary - Made more compact */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1 }}
+                  className="mt-4 md:mt-8"
+                >
+                  <div className="bg-gradient-to-r from-emerald-800 to-green-800 dark:from-emerald-900 dark:to-green-900 rounded-xl md:rounded-2xl p-4 md:p-6 text-white text-center">
+                    <p className="text-sm md:text-lg font-semibold">
+                      A balanced approach to drive strong through-cycle performance of the portfolio
+                    </p>
+                  </div>
+                </motion.div>
+              </motion.div>
             </div>
+
+            {/* Footer */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.2 }}
+              className="absolute bottom-4 md:bottom-8 left-4 md:left-8 right-4 md:right-8 flex justify-between items-center text-xs md:text-sm text-slate-400 dark:text-white/70"
+            >
+              <span>16</span>
+              <span>2025 Proprietary and Confidential</span>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -658,221 +707,197 @@ const sections = [
     title: "Investment Process",
     content: (
       <div className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 dark:from-amber-900 dark:via-yellow-900 dark:to-orange-900">
+
         {/* Content */}
-        <div className="relative z-10 flex h-full items-center justify-center px-8">
-          <div className="max-w-7xl mx-auto text-slate-800 dark:text-white">
-            {/* Header */}
+        <div className="relative z-10 flex h-full items-center justify-center px-4 md:px-8">
+          <div className="max-w-7xl mx-auto text-slate-800 dark:text-white w-full">
+            {/* Header with Quote - Made more compact for mobile */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-center mb-8"
+              className="mb-6 md:mb-12"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl">
-                <Search className="h-10 w-10 text-white" />
-              </div>
-
-              <h1 className="text-3xl md:text-4xl font-bold mb-6">
-                <span className="text-slate-800 dark:text-white/90">
-                  Investment
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent dark:from-amber-300 dark:to-orange-300">
-                  Process
-                </span>
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8 text-slate-800 dark:text-white">
+                Investment Process
               </h1>
 
-              <blockquote className="text-lg md:text-xl font-light italic mb-4 leading-relaxed max-w-3xl mx-auto">
-                <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent dark:from-amber-200 dark:to-orange-200">
+              {/* Madhav Somani Quote */}
+              <div className="bg-gradient-to-r from-amber-200 to-yellow-200 dark:from-amber-800 dark:to-yellow-800 rounded-xl md:rounded-2xl p-4 md:p-6 mb-4 md:mb-8 relative">
+                <Quote className="h-6 w-6 md:h-8 md:w-8 text-amber-600 dark:text-amber-300 mb-2 md:mb-4" />
+                <blockquote className="text-lg md:text-xl lg:text-2xl font-medium italic text-slate-800 dark:text-white leading-relaxed">
                   "You hit the 4s and 6s, leave the bouncers and defend the yorkers"
-                </span>
-                <br />
-                <span className="text-base font-medium text-slate-600 dark:text-white/80">
+                </blockquote>
+                <p className="text-right text-amber-700 dark:text-amber-300 font-semibold mt-2 md:mt-4 text-sm md:text-base">
                   - Madhav Somani
-                </span>
-              </blockquote>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-                className="bg-amber-500/10 dark:bg-amber-500/20 backdrop-blur-md rounded-lg p-3 border border-amber-200/50 dark:border-amber-400/30 max-w-md mx-auto"
-              >
-                <p className="text-amber-700 dark:text-amber-200 font-semibold text-base">
-                  An intense research and vetting process covering
                 </p>
-                <p className="text-xl font-bold text-amber-800 dark:text-amber-100">
-                  200+ stocks each quarter
-                </p>
-              </motion.div>
+              </div>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8 items-start">
-              {/* Left Side - Funnel Visualization */}
+            <div className="grid lg:grid-cols-12 gap-4 md:gap-8 items-start">
+              {/* Left Side - Funnel Diagram - Made more compact and responsive */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                className="relative"
+                transition={{ duration: 1, delay: 0.4 }}
+                className="lg:col-span-4 mb-6 lg:mb-0"
               >
-                {/* Funnel Stages */}
-                <div className="space-y-4">
-                  {/* Stage 1: Ideation - 200/Quarter */}
-                  <motion.div
-                    className="group bg-amber-100/80 dark:bg-amber-500/10 backdrop-blur-xl rounded-xl p-4 border border-amber-200/50 dark:border-amber-400/30 hover:bg-amber-100/90 dark:hover:bg-amber-500/15 transition-all duration-500 shadow-lg"
-                    whileHover={{ scale: 1.02, x: 10 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="w-12 h-12 bg-amber-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-amber-500/30 transition-colors duration-300">
-                        <Lightbulb className="h-6 w-6 text-amber-600 dark:text-amber-400" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-amber-700 dark:text-amber-300">
-                          200/Quarter
-                        </h3>
-                        <h4 className="text-base font-semibold text-amber-600 dark:text-amber-400">
-                          Ideation
-                        </h4>
-                      </div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-3 text-xs">
-                      <div>
-                        <ul className="space-y-2 text-slate-600 dark:text-white/80">
-                          <li>• Tracking List</li>
-                          <li>• Screens</li>
-                          <li>• Results Surprises</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <ul className="space-y-2 text-slate-600 dark:text-white/80">
-                          <li>• Industry Connects</li>
-                          <li>• Investor Community</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </motion.div>
+                <div className="relative">
+                  {/* Funnel Visualization */}
+                  <div className="space-y-2 md:space-y-4">
+                    <motion.div
+                      className="bg-gradient-to-r from-amber-200 to-yellow-300 dark:from-amber-600 dark:to-yellow-600 rounded-lg p-4 md:p-6 text-center shadow-lg"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">200/</div>
+                      <div className="text-sm md:text-lg font-semibold text-slate-700 dark:text-white/90">Quarter</div>
+                    </motion.div>
 
-                  {/* Stage 2: Research - 50/Quarter */}
-                  <motion.div
-                    className="group bg-blue-100/80 dark:bg-blue-500/10 backdrop-blur-xl rounded-xl p-4 border border-blue-200/50 dark:border-blue-400/30 hover:bg-blue-100/90 dark:hover:bg-blue-500/15 transition-all duration-500 shadow-lg ml-6"
-                    whileHover={{ scale: 1.02, x: 10 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-blue-500/30 transition-colors duration-300">
-                        <FileText className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                          50/Quarter
-                        </h3>
-                        <h4 className="text-base font-semibold text-blue-600 dark:text-blue-400">
-                          Research
-                        </h4>
-                      </div>
+                    <div className="flex justify-center">
+                      <div className="w-0 h-0 border-l-[15px] md:border-l-[20px] border-r-[15px] md:border-r-[20px] border-t-[20px] md:border-t-[30px] border-l-transparent border-r-transparent border-t-amber-300 dark:border-t-amber-600"></div>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-3 text-xs">
-                      <div>
-                        <ul className="space-y-2 text-slate-600 dark:text-white/80">
-                          <li>• Financials</li>
-                          <li>• Earnings calls, Interviews</li>
-                          <li>• Valuation Check</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <ul className="space-y-2 text-slate-600 dark:text-white/80">
-                          <li>• Mgmt. Meetings</li>
-                          <li>• Discussion with sell-side analysts</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </motion.div>
 
-                  {/* Stage 3: VAR/Scuttlebutt - 20/Quarter */}
-                  <motion.div
-                    className="group bg-green-100/80 dark:bg-green-500/10 backdrop-blur-xl rounded-xl p-4 border border-green-200/50 dark:border-green-400/30 hover:bg-green-100/90 dark:hover:bg-green-500/15 transition-all duration-500 shadow-lg ml-12"
-                    whileHover={{ scale: 1.02, x: 10 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-green-500/30 transition-colors duration-300">
-                        <Users className="h-6 w-6 text-green-600 dark:text-green-400" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-green-700 dark:text-green-300">
-                          20/Quarter
-                        </h3>
-                        <h4 className="text-base font-semibold text-green-600 dark:text-green-400">
-                          VAR¹/Scuttlebutt
-                        </h4>
-                      </div>
-                    </div>
-                    <div className="text-xs text-slate-600 dark:text-white/80 space-y-1">
-                      <p>• Interviews with competitors, customers, suppliers, ex-employees and other stakeholders</p>
-                      <p>• Site/plant visits, self-use of product/service if applicable</p>
-                    </div>
-                  </motion.div>
+                    <motion.div
+                      className="bg-gradient-to-r from-amber-300 to-yellow-400 dark:from-amber-700 dark:to-yellow-700 rounded-lg p-4 md:p-6 text-center shadow-lg mx-2 md:mx-4"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">50/</div>
+                      <div className="text-sm md:text-lg font-semibold text-slate-700 dark:text-white/90">Quarter</div>
+                    </motion.div>
 
-                  {/* Stage 4: Action - 5/Quarter */}
-                  <motion.div
-                    className="group bg-purple-100/80 dark:bg-purple-500/10 backdrop-blur-xl rounded-xl p-4 border border-purple-200/50 dark:border-purple-400/30 hover:bg-purple-100/90 dark:hover:bg-purple-500/15 transition-all duration-500 shadow-lg ml-18"
-                    whileHover={{ scale: 1.02, x: 10 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mr-3 group-hover:bg-purple-500/30 transition-colors duration-300">
-                        <Target className="h-6 w-6 text-purple-600 dark:text-purple-400" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-purple-700 dark:text-purple-300">
-                          5/Quarter
-                        </h3>
-                        <h4 className="text-base font-semibold text-purple-600 dark:text-purple-400">
-                          Action
-                        </h4>
-                      </div>
+                    <div className="flex justify-center">
+                      <div className="w-0 h-0 border-l-[12px] md:border-l-[15px] border-r-[12px] md:border-r-[15px] border-t-[20px] md:border-t-[30px] border-l-transparent border-r-transparent border-t-amber-400 dark:border-t-amber-700"></div>
                     </div>
-                    <div className="text-xs text-slate-600 dark:text-white/80 space-y-1">
-                      <p>• Continued mgmt. interaction</p>
-                      <p>• Buy/add/trim/exit in the portfolio depending on relative/absolute attractiveness</p>
+
+                    <motion.div
+                      className="bg-gradient-to-r from-amber-400 to-yellow-500 dark:from-amber-800 dark:to-yellow-800 rounded-lg p-4 md:p-6 text-center shadow-lg mx-4 md:mx-8"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">20/</div>
+                      <div className="text-sm md:text-lg font-semibold text-slate-700 dark:text-white/90">Quarter</div>
+                    </motion.div>
+
+                    <div className="flex justify-center">
+                      <div className="w-0 h-0 border-l-[8px] md:border-l-[10px] border-r-[8px] md:border-r-[10px] border-t-[20px] md:border-t-[30px] border-l-transparent border-r-transparent border-t-amber-500 dark:border-t-amber-800"></div>
                     </div>
-                  </motion.div>
+
+                    <motion.div
+                      className="bg-amber-800 dark:bg-amber-900 rounded-lg p-4 md:p-6 text-center shadow-lg mx-6 md:mx-12 border-2 border-amber-700"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="text-2xl md:text-3xl font-bold text-white">5</div>
+                      <div className="text-sm md:text-lg font-semibold text-white">/Quarter</div>
+                    </motion.div>
+                  </div>
                 </div>
-
-                {/* Value Added Research Note */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.2, duration: 0.8 }}
-                  className="mt-4 text-xs text-slate-500 dark:text-white/60"
-                >
-                  ¹ Value added research/primary research
-                </motion.div>
               </motion.div>
 
-              {/* Right Side - Image */}
+              {/* Middle - Process Steps - Made more compact with smaller spacing */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="lg:col-span-5 space-y-3 md:space-y-6"
+              >
+                {/* Ideation */}
+                <div className="bg-white/80 dark:bg-white/10 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 border border-amber-200/50 dark:border-white/20 shadow-lg">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-amber-700 dark:text-amber-300 flex items-center">
+                    <Lightbulb className="h-5 w-5 md:h-6 md:w-6 mr-2" />
+                    Ideation
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm">
+                    <div>
+                      <ul className="space-y-1 md:space-y-2 text-slate-600 dark:text-white/80">
+                        <li>• Tracking List</li>
+                        <li>• Screens</li>
+                        <li>• Results Surprises</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul className="space-y-1 md:space-y-2 text-slate-600 dark:text-white/80">
+                        <li>• Industry Connects</li>
+                        <li>• Investor Community</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Research */}
+                <div className="bg-white/80 dark:bg-white/10 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 border border-amber-200/50 dark:border-white/20 shadow-lg">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-amber-700 dark:text-amber-300 flex items-center">
+                    <BarChart3 className="h-5 w-5 md:h-6 md:w-6 mr-2" />
+                    Research
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm">
+                    <div>
+                      <ul className="space-y-1 md:space-y-2 text-slate-600 dark:text-white/80">
+                        <li>• Financials</li>
+                        <li>• Earnings calls, Interviews</li>
+                        <li>• Valuation Check</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul className="space-y-1 md:space-y-2 text-slate-600 dark:text-white/80">
+                        <li>• Mgmt. Meetings</li>
+                        <li>• Discussion with sell-side analysts</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* VAR/Scuttlebutt */}
+                <div className="bg-white/80 dark:bg-white/10 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 border border-amber-200/50 dark:border-white/20 shadow-lg">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-amber-700 dark:text-amber-300 flex items-center">
+                    <Users className="h-5 w-5 md:h-6 md:w-6 mr-2" />
+                    VAR<sup>(1)</sup>/ Scuttlebutt
+                  </h3>
+                  <div className="space-y-2 md:space-y-3 text-xs md:text-sm text-slate-600 dark:text-white/90">
+                    <p>• Interviews with competitors, customers, suppliers, ex-employees and other stakeholders</p>
+                    <p>• Site / plant visits, self-use of product/ service if applicable</p>
+                  </div>
+                </div>
+
+                {/* Action */}
+                <div className="bg-white/80 dark:bg-white/10 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 border border-amber-200/50 dark:border-white/20 shadow-lg">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-amber-700 dark:text-amber-300 flex items-center">
+                    <Target className="h-5 w-5 md:h-6 md:w-6 mr-2" />
+                    Action
+                  </h3>
+                  <div className="space-y-2 md:space-y-3 text-xs md:text-sm text-slate-600 dark:text-white/90">
+                    <p>• Continued mgmt. interaction</p>
+                    <p>• Buy/ add/ trim/ exit in the portfolio depending on relative/ absolute attractiveness</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Right Side - Highlight Box - Made more compact and responsive */}
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-                className="relative"
+                transition={{ duration: 1, delay: 0.8 }}
+                className="lg:col-span-3 mt-6 lg:mt-0"
               >
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                  <img
-                    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
-                    alt="Investment Process Diagram"
-                    className="w-full h-[500px] object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-900/30 to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-                      <h4 className="text-white font-semibold mb-2">
-                        Systematic Approach
-                      </h4>
-                      <p className="text-white/80 text-sm">
-                        From 200 ideas to 5 actionable investments
-                      </p>
+                <div className="bg-amber-900 dark:bg-amber-950 rounded-xl md:rounded-2xl p-6 md:p-8 shadow-2xl border-2 border-amber-700">
+                  <div className="text-center">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-amber-800 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 border border-amber-600">
+                      <Star className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                    </div>
+                    <h4 className="text-lg md:text-2xl font-bold mb-4 md:mb-6 leading-tight text-white">
+                      An intense research and vetting process covering
+                    </h4>
+                    <div className="text-3xl md:text-4xl font-bold mb-2 text-white">200+</div>
+                    <div className="text-lg md:text-xl font-semibold mb-4 text-white">stocks each quarter</div>
+                    <div className="w-full h-1 bg-amber-800 rounded-full border border-amber-600">
+                      <motion.div
+                        className="h-full bg-white rounded-full"
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 2, delay: 1 }}
+                      />
                     </div>
                   </div>
                 </div>
