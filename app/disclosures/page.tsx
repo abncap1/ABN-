@@ -26,19 +26,6 @@ import { toast } from 'sonner';
 
 const disclosureDocuments = [
   {
-    id: 'disclosure-document',
-    title: 'Disclosure Document',
-    description: 'Comprehensive disclosure document containing all material information about our portfolio management services, fees, and risk factors.',
-    icon: FileText,
-    status: 'TBD',
-    category: 'Primary Documents',
-    size: 'TBD',
-    lastUpdated: 'TBD',
-    color: 'from-blue-500/10 to-blue-600/10',
-    iconColor: 'text-blue-600',
-    downloadUrl: null // Will be updated when document is available
-  },
-  {
     id: 'investor-charter',
     title: 'Investor Charter',
     description: 'Rights and responsibilities of investors, grievance redressal mechanism, and investor protection measures as per SEBI guidelines.',
@@ -131,13 +118,7 @@ const disclosureDocuments = [
   }
 ];
 
-const categories = [
-  { name: 'All Documents', count: disclosureDocuments.length },
-  { name: 'Primary Documents', count: disclosureDocuments.filter(doc => doc.category === 'Primary Documents').length },
-  { name: 'Regulatory Documents', count: disclosureDocuments.filter(doc => doc.category === 'Regulatory Documents').length },
-  { name: 'Compliance Reports', count: disclosureDocuments.filter(doc => doc.category === 'Compliance Reports').length },
-  { name: 'Investor Services', count: disclosureDocuments.filter(doc => doc.category === 'Investor Services').length }
-];
+
 
 export default function Disclosures() {
   const [selectedCategory, setSelectedCategory] = useState('All Documents');
@@ -231,7 +212,7 @@ export default function Disclosures() {
             </h1>
             <p className="text-lg text-slate-600 dark:text-white/80 leading-relaxed mb-8">
               Access all regulatory disclosures, compliance documents, and investor information 
-              required by SEBI guidelines. Download individual documents or get the complete package.
+              required by SEBI guidelines. Download individual documents.
             </p>
             
             <motion.div
@@ -262,7 +243,7 @@ export default function Disclosures() {
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 bg-white/50 dark:bg-white/5 backdrop-blur-sm border-y border-slate-200/50 dark:border-white/10">
+      {/* <section className="py-8 bg-white/50 dark:bg-white/5 backdrop-blur-sm border-y border-slate-200/50 dark:border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
             <div className="flex flex-wrap justify-center gap-4">
@@ -288,7 +269,7 @@ export default function Disclosures() {
             </div>
           </ScrollReveal>
         </div>
-      </section>
+      </section> */}
 
       {/* Documents Grid */}
       <section className="py-20">
@@ -402,92 +383,92 @@ export default function Disclosures() {
       </section>
 
       {/* Refund and Cancellation Policy */}
-      <section className="py-20 bg-white/30 dark:bg-white/5">
+      <section className="py-6 bg-white/30 dark:bg-white/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up" className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-2xl bg-white/90 dark:bg-white/10 backdrop-blur-md">
+            <Card className="border-0 shadow-lg bg-white/90 dark:bg-white/10 backdrop-blur-md">
               <CardHeader>
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center mr-4">
-                    <AlertTriangle className="h-6 w-6 text-red-600" />
+                <div className="flex items-center mb-2">
+                  <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-2">
+                    <AlertTriangle className="h-3 w-3 text-red-600" />
                   </div>
-                  <CardTitle className="text-2xl text-slate-800 dark:text-white">
+                  <CardTitle className="text-lg text-slate-800 dark:text-white">
                     Refund and Cancellation Policy
                   </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <Alert className="mb-6 border-red-200 bg-red-50 dark:bg-red-900/20 dark:border-red-800">
-                  <AlertTriangle className="h-4 w-4 text-red-600" />
-                  <AlertDescription className="text-red-800 dark:text-red-200">
+                <Alert className="mb-3 border-red-200 bg-red-50 dark:bg-red-900/20 dark:border-red-800">
+                  <AlertTriangle className="h-3 w-3 text-red-600" />
+                  <AlertDescription className="text-red-800 dark:text-red-200 text-xs">
                     <strong>Important Notice:</strong> Please read this policy carefully before availing our services.
                   </AlertDescription>
                 </Alert>
 
                 <div className="prose prose-slate dark:prose-invert max-w-none">
-                  <p className="text-slate-700 dark:text-white/90 leading-relaxed mb-6">
+                  <p className="text-slate-700 dark:text-white/90 leading-relaxed text-xs mb-3">
                     All fees and charges for availing the Portfolio Management Services (PMS) will be 
                     debited directly from the Client's account. Please note that these debited amounts 
                     are <strong>non-reversible and non-refundable</strong>.
                   </p>
 
-                  <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-6">
-                    <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-200 mb-3 flex items-center">
-                      <Info className="h-5 w-5 mr-2" />
+                  <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3 mb-3">
+                    <h3 className="text-sm font-semibold text-blue-800 dark:text-blue-200 mb-1.5 flex items-center">
+                      <Info className="h-3 w-3 mr-1.5" />
                       Key Points
                     </h3>
-                    <ul className="space-y-2 text-blue-700 dark:text-blue-300">
+                    <ul className="space-y-1 text-blue-700 dark:text-blue-300 text-xs">
                       <li className="flex items-start">
-                        <CheckCircle className="h-4 w-4 mr-2 mt-1 flex-shrink-0" />
+                        <CheckCircle className="h-3 w-3 mr-1.5 mt-1 flex-shrink-0" />
                         All PMS fees are debited directly from client accounts
                       </li>
                       <li className="flex items-start">
-                        <CheckCircle className="h-4 w-4 mr-2 mt-1 flex-shrink-0" />
+                        <CheckCircle className="h-3 w-3 mr-1.5 mt-1 flex-shrink-0" />
                         Debited amounts are non-reversible and non-refundable
                       </li>
                       <li className="flex items-start">
-                        <CheckCircle className="h-4 w-4 mr-2 mt-1 flex-shrink-0" />
+                        <CheckCircle className="h-3 w-3 mr-1.5 mt-1 flex-shrink-0" />
                         Fee structure is clearly outlined in the agreement
                       </li>
                       <li className="flex items-start">
-                        <CheckCircle className="h-4 w-4 mr-2 mt-1 flex-shrink-0" />
+                        <CheckCircle className="h-3 w-3 mr-1.5 mt-1 flex-shrink-0" />
                         Clients are advised to review all terms before signing
                       </li>
                     </ul>
                   </div>
 
-                  <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">
+                  <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-3">
+                    <h3 className="text-sm font-semibold text-slate-800 dark:text-white mb-2.5">
                       For Concerns or Discrepancies
                     </h3>
-                    <p className="text-slate-700 dark:text-white/90 mb-4">
+                    <p className="text-slate-700 dark:text-white/90 text-xs mb-2">
                       For any concerns or discrepancies regarding fees and charges, 
                       kindly reach out to us through the following channels:
                     </p>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="flex items-center p-4 bg-white dark:bg-slate-700 rounded-lg">
-                        <Mail className="h-5 w-5 text-primary mr-3" />
+                    <div className="grid md:grid-cols-2 gap-2">
+                      <div className="flex items-center p-2.5 bg-white dark:bg-slate-700 rounded-lg">
+                        <Mail className="h-3 w-3 text-primary dark:text-white mr-2" />
                         <div>
                           <p className="font-medium text-slate-800 dark:text-white">Email</p>
                           <a 
                             href="mailto:info@abncapital.in" 
-                            className="text-primary hover:text-primary/80 transition-colors"
+                            className="text-primary dark:text-white hover:text-primary/80 transition-colors"
                           >
-                            info@abncapital.in
+                            contact@abncapital.in
                           </a>
                         </div>
                       </div>
                       
-                      <div className="flex items-center p-4 bg-white dark:bg-slate-700 rounded-lg">
-                        <Phone className="h-5 w-5 text-primary mr-3" />
+                      <div className="flex items-center p-2.5 bg-white dark:bg-slate-700 rounded-lg">
+                        <Phone className="h-3 w-3 text-primary dark:text-white mr-2" />
                         <div>
                           <p className="font-medium text-slate-800 dark:text-white">Phone</p>
                           <a 
-                            href="tel:+15551234567" 
-                            className="text-primary hover:text-primary/80 transition-colors"
+                            href="tel:+91 8169305682" 
+                            className="text-primary dark:text-white hover:text-primary/80 transition-colors"
                           >
-                            +1 (555) 123-4567
+                            +91 8169305682
                           </a>
                         </div>
                       </div>

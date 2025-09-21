@@ -37,10 +37,10 @@ export function Navigation() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 rounded-b-lg",
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b shadow-sm"
-          : "bg-transparent"
+          ? "bg-white dark:bg-gray-900 shadow-md"
+          : "bg-white/80 dark:bg-gray-900/80"
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,10 +54,7 @@ export function Navigation() {
             <img
               src="/assets/Logo.png"
               alt="Logo"
-              className={cn(
-                "h-16 w-48 object-contain ml-2 transition-all duration-300",
-                isScrolled ? "" : "filter brightness-0 invert"
-              )}
+              className="h-16 w-48 object-contain ml-2 transition-all duration-300"
             />
           </Link>
 

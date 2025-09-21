@@ -17,21 +17,21 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Office Location',
-    details: ['123 Financial District', 'New York, NY 10005', 'United States'],
+    details: ['B 308, Damji Shamji Corporate Square, Laxmi Nagar', 'Ghatkopar E, Mumbai 75', 'India'],
     color: 'text-blue-600',
     bgColor: 'from-blue-500/10 to-blue-600/10'
   },
   {
     icon: Phone,
     title: 'Phone',
-    details: ['+1 (555) 123-4567', '+1 (555) 123-4568', 'Mon-Fri 9:00 AM - 6:00 PM EST'],
+    details: ['+91 8169305682', 'Mon-Fri 9:00 AM - 6:00 PM EST'],
     color: 'text-green-600',
     bgColor: 'from-green-500/10 to-green-600/10'
   },
   {
     icon: Mail,
     title: 'Email',
-    details: ['info@abncapital.com', 'support@abncapital.com', 'We respond within 24 hours'],
+    details: ['contact@abncapital.com', 'We respond within 24 hours'],
     color: 'text-purple-600',
     bgColor: 'from-purple-500/10 to-purple-600/10'
   },
@@ -340,7 +340,7 @@ export default function Contact() {
                 <Card className="border-0 shadow-2xl overflow-hidden">
                   <div className="h-64 bg-muted relative">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.3978505725067!2d-74.01299!3d40.70659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316c8ddd7d%3A0x8ad8b60f6d3f2a35!2sFinancial%20District%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sus!4v1652345678901!5m2!1sen!2sus"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.3865076378374!2d72.9162142!3d19.090692699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7efb9449357%3A0xb2f99b5fbea7af95!2sDamji%20shamji%20corporate%20square!5e0!3m2!1sen!2sin!4v1758447175936!5m2!1sen!2sin"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
