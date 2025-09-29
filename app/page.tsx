@@ -10,7 +10,8 @@ import { motion } from 'framer-motion';
 import { ScrollReveal, StaggerContainer } from '@/components/scroll-reveal';
 import { AnimatedCounter } from '@/components/animated-counter';
 import { ContactCopyEmail } from '@/components/ui/ContactCopyEmail';
-
+import Image from 'next/image';
+import Traffic from "@/public/assets/Traffic.jpg"
 
 
 const stats = [
@@ -72,26 +73,15 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden bg-black/60">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-            poster="/assets/video/video.mp4"
-          >
-            <source
-              src="/assets/video/video3.mp4"
-              type="video/mp4"
+          <div className="relative w-full h-full">
+            <Image
+              src={Traffic}
+              alt="Hero background"
+              fill
+              priority
+              className="object-cover blur-sm"
             />
-            {/* Fallback for browsers that don't support video */}
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{
-                backgroundImage: 'url(https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg)'
-              }}
-            />
-          </video>
+          </div>
 
 
           {/* Video Overlay */}
@@ -143,7 +133,7 @@ export default function Home() {
             >
               Investing in India’s 
               <motion.span 
-                className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"
+                className="block bg-gradient-to-r from-yellow-400 via-amber-400 to-red-500 bg-clip-text text-transparent"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -180,7 +170,7 @@ export default function Home() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="group border-white/50 dark:text-white hover:bg-white hover:text-gray-900 dark:hover:text-black backdrop-blur-sm" asChild>
-                <Link href="/about">
+                <Link href="/services">
                   Learn More
                   <motion.div
                     className="ml-2 w-2 h-2 bg-white rounded-full group-hover:bg-gray-900"
