@@ -9,7 +9,7 @@ const teamMembers = [
     quote:
       "Focused on building resilient systems and seamless client experiences. Passionate about clean execution and measurable outcomes.",
     name: "Aniket Nikumb",
-    designation: "Engineering",
+    designation: "Founder",
     src: LOCAL_IMG,
   },
 ];

@@ -1,10 +1,21 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Play, ExternalLink, TrendingUp, Users, BookOpen, Award } from "lucide-react"
+import { Play, ExternalLink, TrendingUp, Users, BookOpen, Award, X } from "lucide-react"
+
+const LinkedInEmbed = dynamic(
+  () => import('react-social-media-embed').then(mod => mod.LinkedInEmbed),
+  { ssr: false }
+)
+
+const TwitterTimelineEmbed = dynamic(
+  () => import('react-twitter-embed').then(mod => mod.TwitterTimelineEmbed),
+  { ssr: false }
+)
 
 interface VideoData {
   id: string
@@ -115,7 +126,7 @@ export default function PerspectivePage() {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                       <div className="bg-primary/90 text-primary-foreground rounded-full p-4">
                         <Play className="h-8 w-8" />
                       </div>
@@ -136,7 +147,15 @@ export default function PerspectivePage() {
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{video.description}</p>
                     <div className="mt-4 flex items-center justify-between">
-                      <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-primary hover:text-primary/80"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedVideo(video);
+                        }}
+                      >
                         Watch Now
                         <ExternalLink className="ml-2 h-4 w-4" />
                       </Button>
@@ -148,6 +167,41 @@ export default function PerspectivePage() {
           </div>
         </div>
       </section>
+      {selectedVideo && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedVideo.title}
+          onClick={() => setSelectedVideo(null)}
+        >
+          <div
+            className="relative w-full max-w-4xl bg-background rounded-lg shadow-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-3 right-3 rounded-full p-2 bg-black/50 text-white hover:bg-black/70"
+              aria-label="Close"
+              onClick={() => setSelectedVideo(null)}
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <div className="aspect-video w-full bg-muted">
+              <iframe
+                src={`${selectedVideo.embedUrl}?rel=0&modestbranding=1&autoplay=1`}
+                title={selectedVideo.title}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="p-4 border-t">
+              <h3 className="text-lg font-semibold mb-1">{selectedVideo.title}</h3>
+              <p className="text-sm text-muted-foreground">{selectedVideo.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

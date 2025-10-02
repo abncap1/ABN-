@@ -13,7 +13,7 @@ import Logo from "@/public/assets/Logo.png";
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Investment Approach", href: "/services" },
-  { name: "Teams", href: "/teams" },
+  { name: "Team", href: "/teams" },
   { name: "Perspectives", href: "/perspectives" },
   { name: "Disclosures", href: "/disclosures" },
   { name: "Contact", href: "/contact" },
