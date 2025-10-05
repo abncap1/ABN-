@@ -17,14 +17,14 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Office Location',
-    details: ['B 308, Damji Shamji Corporate Square, Laxmi Nagar', 'Ghatkopar E, Mumbai 75', 'India'],
+    details: ['B 308, Damji Shamji Corporate Square, Laxmi Nagar, Ghatkopar E, Mumbai 75',],
     color: 'text-blue-600',
     bgColor: 'from-blue-500/10 to-blue-600/10'
   },
   {
     icon: Phone,
     title: 'Phone',
-    details: ['+91 8169305682', 'Mon-Fri 9:00 AM - 6:00 PM EST'],
+    details: ['+91 8169305682', 'Mon-Fri 9:00 AM - 6:00 PM IST'],
     color: 'text-green-600',
     bgColor: 'from-green-500/10 to-green-600/10'
   },
@@ -338,7 +338,7 @@ export default function Contact() {
                 transition={{ duration: 0.3 }}
               >
                 <Card className="border-0 shadow-2xl overflow-hidden">
-                  <div className="h-64 bg-muted relative">
+                  <div className="h-[58vh] bg-muted relative">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.3865076378374!2d72.9162142!3d19.090692699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7efb9449357%3A0xb2f99b5fbea7af95!2sDamji%20shamji%20corporate%20square!5e0!3m2!1sen!2sin!4v1758447175936!5m2!1sen!2sin"
                       width="100%"
@@ -353,49 +353,7 @@ export default function Contact() {
                 </Card>
               </motion.div>
 
-              {/* Quick Contact */}
-              {/* <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Card className="border-0 shadow-2xl relative overflow-hidden">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 hover:opacity-100 transition-opacity duration-500"
-                  />
-                  
-                  <CardHeader className="relative z-10">
-                    <CardTitle className="flex items-center">
-                      <motion.div
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                      </motion.div>
-                      Why Choose ABN CAPITAL?
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="relative z-10">
-                    <ul className="space-y-3">
-                      {benefits.map((benefit, index) => (
-                        <motion.li
-                          key={index}
-                          className="flex items-center text-sm"
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                        >
-                          <motion.div
-                            className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                          />
-                          {benefit}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div> */}
+             
             </ScrollReveal>
           </div>
         </div>
