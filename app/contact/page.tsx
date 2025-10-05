@@ -70,22 +70,46 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success('Thank you for your inquiry! We will contact you within 24 hours.');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        company: '',
-        investmentAmount: '',
-        serviceType: '',
-        message: ''
+  
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-    }, 2000);
+  
+      // Attempt to read text first to avoid "Unexpected end of JSON input"
+      const raw = await response.text();
+      let parsed: any = null;
+      try {
+        parsed = raw ? JSON.parse(raw) : null;
+      } catch (_) {
+        // not JSON – keep `parsed` as null
+      }
+  
+      if (response.ok && parsed?.success) {
+        toast.success("Your message has been sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          investmentAmount: "",
+          serviceType: "",
+          message: "",
+        });
+      } else {
+        const serverMsg = parsed?.error || raw || "Failed to send message. Please try again later.";
+        toast.error(serverMsg);
+        console.error("/api/send-email error:", serverMsg);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
