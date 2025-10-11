@@ -31,15 +31,21 @@ export function TeamCard({ member }: { member: TeamMember }) {
       <CardContent className="p-6">
         <div className="flex items-start gap-4">
           <div className="relative flex-shrink-0 w-16 h-16 rounded-full overflow-hidden bg-muted">
-            <Image
+            <img
               src={
                 member.image ||
                 "/placeholder.svg?height=64&width=64&query=team%20member%20portrait"
               }
               alt={member.name}
-              fill
-              sizes="64px"
-              className="object-cover"
+              className="object-cover object-center rounded-full mx-auto transition-transform duration-300 hover:scale-105"
+              style={{
+                width: '130%',
+                height: '130%',
+                position: 'absolute',
+                left: '50%',
+                top: '65%',
+                transform: 'translate(-50%, -50%)',
+              }}
             />
           </div>
 
@@ -87,28 +93,23 @@ export function TeamCard({ member }: { member: TeamMember }) {
                 </a>
               </Button>
 
-              <Button
-                size="sm"
-                variant="secondary"
-                className="h-8 w-8 p-0"
-                asChild
-                aria-label={
-                  member.linkedin
-                    ? `Open ${member.name} on LinkedIn`
-                    : "LinkedIn unavailable"
-                }
-              >
-                <a
-                  href={member.linkedin || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => {
-                    if (!member.linkedin) e.preventDefault();
-                  }}
+              {member.linkedin && (
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  className="h-8 w-8 p-0"
+                  asChild
+                  aria-label={`Open ${member.name} on LinkedIn`}
                 >
-                  <Linkedin className="h-4 w-4" />
-                </a>
-              </Button>
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </a>
+                </Button>
+              )}
 
               <Dialog open={open} onOpenChange={setOpen}>
                 <DialogTrigger asChild>
@@ -126,15 +127,23 @@ export function TeamCard({ member }: { member: TeamMember }) {
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
                       <div className="relative w-24 h-24 rounded-full overflow-hidden bg-muted">
-                        <Image
+                        <img
                           src={
                             member.image ||
                             "/placeholder.svg?height=96&width=96&query=team%20member%20portrait"
                           }
                           alt={member.name}
-                          fill
+                          
                           sizes="96px"
-                          className="object-cover"
+                          className="object-cover object-center rounded-full mx-auto transition-transform duration-300 hover:scale-105"
+                          style={{
+                            width: '130%',
+                            height: '130%',
+                            position: 'absolute',
+                            left: '50%',
+                            top: '65%',
+                            transform: 'translate(-50%, -50%)',
+                          }}
                         />
                       </div>
                       <div>

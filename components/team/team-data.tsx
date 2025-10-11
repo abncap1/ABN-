@@ -18,13 +18,13 @@ export type TeamMember = {
       name: "Aniket Nikumb",
       position: "Founder & Chief Investment Officer",
       image: "/assets/IMG.JPG.jpg",
-      bio: " 15+ years of experience as an entrepreneur and investor in India. Most recently, he was part of the Founding Team at Mensa Brands which became India's fastest unicorn. He is a rank holder Chartered Accountant and holds a MBA from Columbia Business School, New York. He has been honored with several awards including CA 40 under 40 and Hurun India Under 35 and speakers regularly in business events and podcasts including The Barbershop with Shantanu and TedX",
-      expertise: ["Portfolio Strategy", "Risk Management", "ESG Investing"],
-      education: "CA, CFA, MBA",
+      bio: " 12+ years of experience as an entrepreneur and investor in India. Most recently, he was part of the Founding Team at Mensa Brands, which became India's fastest unicorn. He is a rank holder Chartered Accountant and holds a MBA from Columbia Business School, New York. He has been honored with several awards including CA 40 under 40 and Hurun India Under 35s and speakers regularly in business events and podcasts including The Barbershop with Shantanu and TedX",
+      expertise: ["Portfolio Strategy", "Risk Management"],
+      education: "B.Com, CA, CS, CFA (US) Charteredholder, MBA",
       achievements: [
-        "CFA Charterholder",
-        "Top 40 Under 40 Finance Professional",
-        "Published researcher on sustainable investing",
+        "CFA Chartereholder",
+        "CA 40 under 40 Awardee",
+        "3x Entrepreneur",
       ],
       email: "aniket@abncapital.in",
       linkedin: "https://www.linkedin.com/in/aniketnikumb/?originalSubdomain=in",
@@ -38,14 +38,9 @@ export type TeamMember = {
       name: "Apurva Iyer",
       position: "Partner",
       image: "/assets/Apurva.jpeg",
-      bio: "10+ years as entrepreneur and business professional. Founded Appaloosa Foods, exited to Everstone Capital.",
-      expertise: ["Portfolio Strategy", "Risk Management", "ESG Investing"],
+      bio: "10+ years as an entrepreneur and business professional in India. Most recently, she was the co-founder of Appaloosa Foods which was exited to Everstone Capital in 2024. Apurva has extensive experience in pharma and consumer sectors. She holds a MS from Universify College of London",
+      expertise: ["Operations Management", "Risk Management"],
       education: "B.Sc., M.Sc., MS",
-      achievements: [
-        "CFA Charterholder",
-        "Top 40 Under 40 Finance Professional",
-        "Published researcher on sustainable investing",
-      ],
       email: "apurva@abncapital.in",
       linkedin: "https://www.linkedin.com/in/apurva-iyer-a8894349/",
     },
@@ -55,6 +50,7 @@ export type TeamMember = {
       position: "Accounting and Operations",
       image: "/assets/team.png",
       education: "BCom (Accounting & Finance)",
+      email: "akshay@abncapital.in"
     },
     {
       id: 4,
@@ -62,6 +58,7 @@ export type TeamMember = {
       position: "Operations and Compliance",
       image: "/assets/Bhavya.jpg",
       education: "BCom (Banking & Insurance), MBA",
+      email: "bhavya.joshi@abncapital.in"
     },
   ]
   

@@ -1,156 +1,163 @@
-"use client"
+"use client";
 
-import dynamic from "next/dynamic"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Play, ExternalLink, TrendingUp, Users, BookOpen, Award, X } from "lucide-react"
+import React, { useState } from "react";
+import { Play, ExternalLink, X } from "lucide-react";
+import { XTimeline } from "@/components/XTimeline";
+// Lightweight X (Twitter) timeline embed (markup + widgets.js)
+function TwEmbed({ profile = "aniket_abncap", height = 600 }: { profile?: string; height?: number }) {
+  const [loaded, setLoaded] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
-const LinkedInEmbed = dynamic(
-  () => import('react-social-media-embed').then(mod => mod.LinkedInEmbed),
-  { ssr: false }
-)
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
 
-const TwitterTimelineEmbed = dynamic(
-  () => import('react-twitter-embed').then(mod => mod.TwitterTimelineEmbed),
-  { ssr: false }
-)
+    const ensureScript = () =>
+      new Promise<void>((resolve, reject) => {
+        // already present
+        if ((window as any).twttr?.widgets) return resolve();
+        const existing = document.getElementById("twitter-widgets");
+        if (existing) {
+          existing.addEventListener("load", () => resolve());
+          existing.addEventListener("error", () => reject(new Error("widgets.js failed")));
+          return;
+        }
+        const s = document.createElement("script");
+        s.id = "twitter-widgets";
+        s.src = "https://platform.twitter.com/widgets.js";
+        s.async = true;
+        s.charset = "utf-8";
+        s.onload = () => resolve();
+        s.onerror = () => reject(new Error("widgets.js failed"));
+        document.body.appendChild(s);
+      });
+
+    ensureScript()
+      .then(() => {
+        // Render/upgrade any anchors inside container
+        try {
+          ((window as any).twttr?.widgets?.load && containerRef.current) && (window as any).twttr.widgets.load(containerRef.current);
+          setLoaded(true);
+        } catch (e) {
+          setLoaded(false);
+        }
+      })
+      .catch(() => setLoaded(false));
+  }, [profile, height]);
+
+  return (
+    <div className="w-full flex justify-center">
+      {/* The timeline honors parent width (max 520px per X docs). */}
+      <div ref={containerRef} className="w-full max-w-[520px] mx-auto">
+        <a
+          className="twitter-timeline"
+          href={`https://twitter.com/${profile}`}
+          data-height={String(height)}
+          data-chrome="noheader nofooter noborders transparent"
+          data-dnt="true"
+          data-aria-polite="polite"
+        >
+          Tweets by @{profile}
+        </a>
+        {!loaded && (
+          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400 text-center">Loading timeline…</div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 interface VideoData {
-  id: string
-  title: string
-  description: string
-  category: string
-  duration: string
-  views: string
-  embedUrl: string
+  id: string;
+  embedUrl: string;
+  title: string;
 }
 
 const videos: VideoData[] = [
   {
     id: "YtrY0oyd-Ls",
-    title: "Investment Strategies for Market Volatility",
-    description:
-      "Learn how to navigate uncertain markets with proven investment strategies that protect and grow your wealth during volatile periods.",
-    category: "Strategy",
-    duration: "12:45",
-    views: "45K",
     embedUrl: "https://www.youtube.com/embed/YtrY0oyd-Ls",
+    title: "Investment Insights",
   },
   {
     id: "LsV5nMxwTGM",
-    title: "Portfolio Diversification Fundamentals",
-    description:
-      "Discover the essential principles of portfolio diversification and how to build a balanced investment portfolio for long-term success.",
-    category: "Education",
-    duration: "18:32",
-    views: "32K",
     embedUrl: "https://www.youtube.com/embed/LsV5nMxwTGM",
-  },
-]
-
-const insights = [
-  {
-    icon: TrendingUp,
     title: "Market Analysis",
-    description: "Deep insights into market trends and investment opportunities",
   },
-  {
-    icon: Users,
-    title: "Expert Perspectives",
-    description: "Learn from seasoned professionals with decades of experience",
-  },
-  {
-    icon: BookOpen,
-    title: "Educational Content",
-    description: "Comprehensive guides to help you make informed decisions",
-  },
-  {
-    icon: Award,
-    title: "Proven Strategies",
-    description: "Time-tested approaches that deliver consistent results",
-  },
-]
+];
 
 export default function PerspectivePage() {
-  const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null)
+  const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/5 via-background to-accent/5 py-20 px-4">
+    <div className="min-h-screen bg-white dark:bg-slate-900">
+      <section className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <Badge variant="secondary" className="mb-6 text-sm font-medium">
+          <span className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium px-4 py-2 rounded-full mb-6">
             Expert Insights
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 text-balance">Investment Perspectives</h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
-            Gain valuable insights from our investment experts through carefully curated educational content designed to
-            enhance your financial knowledge and decision-making capabilities.
+          </span>
+          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 font-sans">
+            Investment Perspectives
+          </h1>
+          <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto font-sans">
+            Gain valuable insights from our investment experts through carefully
+            curated educational content designed to enhance your financial
+            knowledge and decision-making capabilities.
           </p>
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            onClick={() => document.getElementById("videos")?.scrollIntoView({ behavior: "smooth" })}
+          <button
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center font-sans"
+            onClick={() =>
+              document
+                .getElementById("videos")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             <Play className="mr-2 h-5 w-5" />
             Explore Videos
-          </Button>
+          </button>
         </div>
       </section>
 
-      {/* Video Showcase Section */}
       <section id="videos" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Featured Content</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Watch our latest educational videos covering essential investment topics and market insights.
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 font-sans">
+              Featured Content
+            </h2>
+            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-sans">
+              Watch our latest educational videos covering essential investment
+              topics and market insights.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {videos.map((video) => (
-              <Card
+              <div
                 key={video.id}
-                className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-card border-border"
+                className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden"
                 onClick={() => setSelectedVideo(video)}
               >
-                <CardContent className="p-0">
-                  <div className="relative aspect-video bg-muted rounded-t-lg overflow-hidden">
+                <div className="p-0">
+                  <div className="relative aspect-video bg-slate-100 dark:bg-slate-700 rounded-t-lg overflow-hidden">
                     <iframe
                       src={`${video.embedUrl}?rel=0&modestbranding=1`}
-                      title={video.title}
                       className="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
+                      title={video.title}
                     />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                      <div className="bg-primary/90 text-primary-foreground rounded-full p-4">
+                    <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      <div className="bg-blue-600/90 text-white rounded-full p-4">
                         <Play className="h-8 w-8" />
                       </div>
                     </div>
                   </div>
                   <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <Badge variant="outline" className="text-xs">
-                        {video.category}
-                      </Badge>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <span>{video.duration}</span>
-                        <span>{video.views} views</span>
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold text-card-foreground mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 font-sans">
                       {video.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{video.description}</p>
                     <div className="mt-4 flex items-center justify-between">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-primary hover:text-primary/80"
+                      <button
+                        className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium inline-flex items-center font-sans"
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedVideo(video);
@@ -158,50 +165,58 @@ export default function PerspectivePage() {
                       >
                         Watch Now
                         <ExternalLink className="ml-2 h-4 w-4" />
-                      </Button>
+                      </button>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
+
+      <section className="py-20 px-4 bg-slate-50 dark:bg-slate-800/50">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 font-sans">
+            Follow Us on Twitter
+          </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-300 mb-12 font-sans">
+            Stay updated with our latest market insights, trends, and
+            announcements.
+          </p>
+          <XTimeline screenName="aniket_abncap" mode="api" apiPath="/api/twitter/timeline" />        </div>
+      </section>
+
       {selectedVideo && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
           role="dialog"
           aria-modal="true"
-          aria-label={selectedVideo.title}
           onClick={() => setSelectedVideo(null)}
         >
           <div
-            className="relative w-full max-w-4xl bg-background rounded-lg shadow-xl overflow-hidden"
+            className="relative w-full max-w-4xl bg-white dark:bg-slate-800 rounded-lg shadow-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-3 right-3 rounded-full p-2 bg-black/50 text-white hover:bg-black/70"
+              className="absolute top-3 right-3 z-10 rounded-full p-2 bg-black/50 text-white hover:bg-black/70 transition-colors"
               aria-label="Close"
               onClick={() => setSelectedVideo(null)}
             >
               <X className="h-5 w-5" />
             </button>
-            <div className="aspect-video w-full bg-muted">
+            <div className="aspect-video w-full bg-slate-100 dark:bg-slate-700">
               <iframe
                 src={`${selectedVideo.embedUrl}?rel=0&modestbranding=1&autoplay=1`}
-                title={selectedVideo.title}
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                title={selectedVideo.title}
               />
-            </div>
-            <div className="p-4 border-t">
-              <h3 className="text-lg font-semibold mb-1">{selectedVideo.title}</h3>
-              <p className="text-sm text-muted-foreground">{selectedVideo.description}</p>
             </div>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -7,8 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { ScrollReveal, StaggerContainer } from '@/components/scroll-reveal';
@@ -156,28 +155,28 @@ export default function Contact() {
                 <Card className={`text-center group hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br ${info.bgColor} relative overflow-hidden`}>
                   <motion.div
                     className="absolute top-2 right-2 w-6 h-6 bg-white/10 rounded-full"
-                    animate={{ 
+                    animate={{
                       scale: [1, 1.2, 1],
                       opacity: [0.3, 0.6, 0.3]
                     }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
                   />
-                  
+
                   <CardContent className="p-6 relative z-10">
                     <motion.div
-                      className={`w-12 h-12 rounded-full bg-background shadow-md flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      className={`w-14 h-14 rounded-full bg-background shadow-md flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
                       whileHover={{ rotate: 10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <info.icon className={`h-6 w-6 ${info.color}`} />
+                      <info.icon className={`h-8 w-8 ${info.color}`} />
                     </motion.div>
-                    <h3 className="font-semibold mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="font-semibold text-lg sm:text-xl mb-4 group-hover:text-primary transition-colors">
                       {info.title}
                     </h3>
                     {info.details.map((detail, idx) => (
                       <motion.p
                         key={idx}
-                        className="text-sm text-muted-foreground mb-1"
+                        className="text-base sm:text-lg text-muted-foreground mb-2"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
