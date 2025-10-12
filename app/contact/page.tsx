@@ -23,14 +23,14 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    details: ['+91 8169305682', 'Mon-Fri 9:00 AM - 6:00 PM IST'],
+    details: ['+91 816-930-5682', 'Mon-Fri 9:00 AM - 6:00 PM IST'],
     color: 'text-green-600',
     bgColor: 'from-green-500/10 to-green-600/10'
   },
   {
     icon: Mail,
     title: 'Email',
-    details: ['contact@abncapital.com', 'We respond within 24 hours'],
+    details: ['abncapital.in', 'We respond within 24 hours'],
     color: 'text-purple-600',
     bgColor: 'from-purple-500/10 to-purple-600/10'
   },

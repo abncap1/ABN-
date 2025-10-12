@@ -13,8 +13,7 @@ export default function TeamsPage() {
             Meet the Experts Behind <span className="text-primary">Your Success</span>
           </h1>
           <p className="mt-4 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Our diverse team of investment professionals brings decades of experience, combining expertise with
-            innovation to deliver exceptional results for our clients.
+          Our diverse team of professionals brings decades of experience, combining expertise with dynamic thinking to deliver exceptional results for our clients.
           </p>
         </div>
       </header>
