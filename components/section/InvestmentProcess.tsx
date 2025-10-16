@@ -55,7 +55,7 @@ export function InvestmentProcess() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-row md:flex-col items-center md:items-stretch justify-center md:justify-start gap-4 md:gap-6"
+            className="flex flex-row relative lg:top-60 md:flex-col items-center justify-center md:justify-start gap-4 md:gap-20 lg:left-8"
             aria-label="Opportunity funnel counts"
           >
             {funnelCounts.map((n, i) => (

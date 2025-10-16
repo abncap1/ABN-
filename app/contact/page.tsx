@@ -30,7 +30,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: 'Email',
-    details: ['abncapital.in', 'We respond within 24 hours'],
+    details: ['contact@abncapital.in', 'We respond within 24 hours'],
     color: 'text-purple-600',
     bgColor: 'from-purple-500/10 to-purple-600/10'
   },

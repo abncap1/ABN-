@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
   Download,
   FileText,
@@ -221,8 +220,7 @@ export default function Disclosures() {
               Regulatory Disclosures
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800 dark:text-white">
-              Disclosure
-              <span className="gradient-text block">Documents</span>
+              Disclosure Documents
             </h1>
             <p className="text-lg text-slate-600 dark:text-white/80 leading-relaxed mb-8">
               Access all regulatory disclosures, compliance documents, and

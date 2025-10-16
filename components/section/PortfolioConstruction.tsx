@@ -5,7 +5,7 @@
 
 import { motion } from 'framer-motion';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { TrendingUp, Rocket, RefreshCw, Sparkles, Percent } from 'lucide-react';
+import { TrendingUp, Rocket, RefreshCw, Sparkles } from 'lucide-react';
 
 export function PortfolioConstruction() {
   const portfolioItems = [
@@ -110,7 +110,7 @@ export function PortfolioConstruction() {
                 {/* Allocation + icon */}
                 <div className="relative z-10 flex items-center justify-between mb-2">
                   <p className="dark:text-white/90 font-semibold tracking-tight flex items-center gap-2">
-                    <Percent className="w-4 h-4 opacity-90" /> {item.allocation}
+                    {item.allocation}
                   </p>
                   <div className="rounded-xl px-3 py-1 bg-white/15 dark:text-white/90 text-xs font-medium backdrop-blur-sm border border-white/20">
                     {item.irr}
@@ -145,7 +145,7 @@ export function PortfolioConstruction() {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-slate-900/10 dark:ring-white/10">
             <div className="absolute inset-0 " />
             <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop"
+              src="https://plus.unsplash.com/premium_photo-1661611263128-ffb51eca570f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2669"
               alt="Strategic portfolio allocation visual"
               className="relative w-full h-[26rem] object-cover mix-blend-multiply opacity-90"
               loading="lazy"

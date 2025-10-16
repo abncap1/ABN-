@@ -95,6 +95,12 @@ const videos: VideoData[] = [
     embedUrl: "https://www.youtube.com/embed/LsV5nMxwTGM",
     title: "",
   },
+  {
+    id: "LsV5dfvxwTGM",
+    embedUrl: "https://www.youtube.com/embed/fEroxqDOaps?si=lxmzU5nc97dBheIf",
+    title: "",
+  },
+  
 ];
 
 export default function PerspectivePage() {
@@ -107,10 +113,10 @@ export default function PerspectivePage() {
           <span className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium px-4 py-2 rounded-full mb-6">
             Expert Insights
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 font-sans">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800 dark:text-white">
             Investment Perspectives
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto font-sans">
+          <p className="text-lg text-slate-600 dark:text-white/80 leading-relaxed mb-8">
             Gain valuable insights from our expertise in the areas of business
             building in India
           </p>

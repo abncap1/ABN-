@@ -107,7 +107,7 @@ export function WhyUs() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-amber-200 to-orange-200 dark:from-amber-700 dark:to-orange-800" />
               <img
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop"
+                src="https://plus.unsplash.com/premium_photo-1749037209458-df7733a779a5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2671"
                 alt="Professional investment team collaborating"
                 className="relative w-full h-[28rem] object-cover mix-blend-multiply opacity-90"
                 loading="lazy"

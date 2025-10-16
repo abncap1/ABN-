@@ -171,14 +171,6 @@ export function InvestmentFramework() {
               </div>
             </motion.div>
 
-            {/* Connector chip */}
-            <div className="relative flex items-center gap-3 my-4">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-300/60 to-transparent dark:via-slate-600/60" />
-              <span className="px-3 py-1 rounded-full text-xs font-medium bg-indigo-600/10 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-300 ring-1 ring-indigo-600/20 dark:ring-indigo-400/20 backdrop-blur">
-                informs
-              </span>
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-300/60 to-transparent dark:via-slate-600/60" />
-            </div>
 
             {/* Controllables group */}
             <motion.div
@@ -240,28 +232,6 @@ export function InvestmentFramework() {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-slate-900/0 to-transparent" />
-
-            {/* Floating KPI chips */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="absolute top-6 left-6 backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 rounded-2xl px-4 py-3 shadow-lg"
-            >
-              <p className="text-xs text-slate-600 dark:text-slate-300">Portfolio Volatility</p>
-              <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">↓ 18.2%</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.35 }}
-              className="absolute bottom-6 right-6 backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 rounded-2xl px-4 py-3 shadow-lg"
-            >
-              <p className="text-xs text-slate-600 dark:text-slate-300">3Y CAGR</p>
-              <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">+ 14.6%</p>
-            </motion.div>
           </motion.div>
         </motion.div>
       </div>

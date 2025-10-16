@@ -1,11 +1,9 @@
-
-
 // components/sections/GuidingPrinciples.tsx
 "use client";
 
-import { motion } from 'framer-motion';
-import { Eye, Brain, Shield } from 'lucide-react';
-import { SectionHeader } from '@/components/ui/SectionHeader';
+import { motion } from "framer-motion";
+import { Eye, Brain, Shield } from "lucide-react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function GuidingPrinciples() {
   return (
@@ -36,17 +34,17 @@ export function GuidingPrinciples() {
             gradient2="from-blue-600 via-indigo-600 to-slate-600"
           />
 
-          <motion.blockquote
+          <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
-            className="text-center lg:text-left not-italic"
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 ring-1 ring-amber-500/20 backdrop-blur"
           >
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-700 via-slate-900 to-slate-700 dark:from-slate-100 dark:via-slate-300 dark:to-slate-100">
-              The young men know the rules. The old men know the exceptions.
-            </p>
-          </motion.blockquote>
+            <span className="text-sm">
+              “The young men know the rules. The old men know the exceptions. ”
+            </span>
+          </motion.div>
 
           {/* Glassy cards */}
           <motion.div
@@ -57,19 +55,36 @@ export function GuidingPrinciples() {
             variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
           >
             {[
-              { icon: Eye, title: 'Objectivity', desc: 'Most things are not as bad or as good as they may instinctively seem.' },
-              { icon: Brain, title: 'Learn-ability', desc: 'Keep eyes and ears open—Mr. Market will show you all you need to know.' },
-              { icon: Shield, title: 'Humility', desc: 'Anything can happen. The market is almost always right; manage risk first.' },
+              {
+                icon: Eye,
+                title: "Objectivity",
+                desc: "Most things are not as bad or as good as they may instinctively seem.",
+              },
+              {
+                icon: Brain,
+                title: "Learn-ability",
+                desc: "Keep eyes and ears open—Mr. Market will show you all you need to know.",
+              },
+              {
+                icon: Shield,
+                title: "Humility",
+                desc: "Anything can happen. The market is almost always right; manage risk first.",
+              },
             ].map((item, i) => (
               <motion.div
                 key={i}
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
                 whileHover={{ y: -4, scale: 1.02 }}
                 className="group relative rounded-2xl p-6 backdrop-blur-md bg-white/55 dark:bg-white/5 border border-white/40 dark:border-white/10 shadow-xl ring-1 ring-inset ring-slate-900/5 dark:ring-white/10"
               >
                 <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-br from-white/40 to-transparent dark:from-white/10" />
                 <item.icon className="relative w-8 h-8 mb-4 text-indigo-600 dark:text-indigo-400" />
-                <h3 className="relative text-xl font-semibold text-slate-900 dark:text-slate-100">{item.title}</h3>
+                <h3 className="relative text-xl font-semibold text-slate-900 dark:text-slate-100">
+                  {item.title}
+                </h3>
                 <p className="relative mt-1 text-lg leading-6 text-slate-600 dark:text-slate-400">
                   {item.desc}
                 </p>
