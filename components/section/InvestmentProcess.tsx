@@ -18,8 +18,8 @@ export function InvestmentProcess() {
     {
       icon: BarChart3,
       title: 'Research',
-      bullets1: ['Financials', 'Earnings calls', 'Interviews', 'Valuation check'],
-      bullets2: ['Mgmt. meetings', 'Discussion with sell-side analysts'],
+      bullets1: ['Financials', 'Earnings calls', 'Interviews', ],
+      bullets2: ['Mgmt. meetings', 'Discussion with sell-side analysts', 'Valuation check'],
     },
     {
       icon: Users,

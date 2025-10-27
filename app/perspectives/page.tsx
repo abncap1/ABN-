@@ -100,7 +100,6 @@ const videos: VideoData[] = [
     embedUrl: "https://www.youtube.com/embed/fEroxqDOaps?si=lxmzU5nc97dBheIf",
     title: "",
   },
-  
 ];
 
 export default function PerspectivePage() {
@@ -194,25 +193,6 @@ export default function PerspectivePage() {
 
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-6 mb-12 px-4">
         <a
-          href="https://x.com/aniket_abncap?t=c1yinpbZSsbHm4ZAWjUiAg&s=08"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Connect on X (Twitter)"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-neutral-950 hover:bg-neutral-900 rounded-2xl shadow-lg transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-800"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
-            aria-hidden="true"
-          >
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.52l-5.178-6.776L5.36 21.75H2.05l7.732-8.843L1.56 2.25H7.7l4.663 6.105 5.881-6.105z" />
-          </svg>
-          <span className="truncate">Connect on X (Twitter)</span>
-        </a>
-
-        <a
           href="https://www.linkedin.com/in/aniketnikumb/"
           target="_blank"
           rel="noopener noreferrer"
@@ -230,10 +210,29 @@ export default function PerspectivePage() {
           </svg>
           <span className="truncate">Connect on LinkedIn</span>
         </a>
+
+        <a
+          href="https://x.com/aniket_abncap?t=c1yinpbZSsbHm4ZAWjUiAg&s=08"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Connect on X (Twitter)"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-neutral-950 hover:bg-neutral-900 rounded-2xl shadow-lg transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-800"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
+            aria-hidden="true"
+          >
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.52l-5.178-6.776L5.36 21.75H2.05l7.732-8.843L1.56 2.25H7.7l4.663 6.105 5.881-6.105z" />
+          </svg>
+          <span className="truncate">Connect on X (Twitter)</span>
+        </a>
       </div>
 
       <section className="py-20 px-4 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-7xl mx-auto text-center">
+        {/* <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 font-sans">
             Follow Us on Twitter
           </h2>
@@ -246,7 +245,7 @@ export default function PerspectivePage() {
             mode="api"
             apiPath="/api/twitter/timeline"
           />{" "}
-        </div>
+        </div> */}
       </section>
 
       {selectedVideo && (
