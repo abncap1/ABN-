@@ -150,16 +150,16 @@ export function InvestmentProcess() {
             className="relative lg:sticky lg:top-24"
           >
             <motion.div
-              whileHover={{ y: -6 }}
-              className="relative overflow-hidden rounded-2xl p-6 shadow-2xl ring-1 ring-slate-900/10 dark:ring-white/10 backdrop-blur-md bg-gradient-to-br from-amber-500/18 via-amber-600/18 to-amber-700/18 border border-amber-400/30 dark:border-amber-500/25"
+              whileHover={{ y: -6, scale: 1.05 }}
+              className="relative overflow-hidden rounded-2xl p-10 shadow-2xl ring-1 ring-slate-900/10 dark:ring-white/10 backdrop-blur-md bg-gradient-to-br from-amber-500/18 via-amber-600/18 to-amber-700/18 border border-amber-400/30 dark:border-amber-500/25"
             >
-              <Star className="w-12 h-12 text-amber-500 mx-auto mb-4" />
-              <p className="text-center text-slate-800 dark:text-slate-200 font-medium mb-4">
+              <Star className="w-16 h-16 text-amber-500 mx-auto mb-4" />
+              <p className="text-center text-lg text-slate-800 dark:text-slate-200 font-semibold mb-6">
                 Intense research and vetting covering 200+ stocks each quarter
               </p>
-              <div className="w-full bg-slate-200/60 dark:bg-slate-700/50 rounded-full h-2">
+              <div className="w-full bg-slate-200/60 dark:bg-slate-700/50 rounded-full h-3">
                 <motion.div
-                  className="bg-gradient-to-r from-amber-500 to-amber-600 h-2 rounded-full"
+                  className="bg-gradient-to-r from-amber-500 to-amber-600 h-3 rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: '85%' }}
                   viewport={{ once: true, amount: 0.3 }}
@@ -175,13 +175,13 @@ export function InvestmentProcess() {
                 transition={{ delay: 0.2 }}
                 className="mt-5 grid grid-cols-2 gap-3"
               >
-                <div className="rounded-xl px-3 py-2 bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 text-center">
-                  <p className="text-[11px] text-slate-600 dark:text-slate-300">Idea → Action</p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">~ 2–6 weeks</p>
+                <div className="rounded-xl px-4 py-3 bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 text-center">
+                  <p className="text-sm text-slate-600 dark:text-slate-300">Idea → Action</p>
+                  <p className="text-base font-semibold text-slate-900 dark:text-slate-100">~ 2–6 weeks</p>
                 </div>
-                <div className="rounded-xl px-3 py-2 bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 text-center">
-                  <p className="text-[11px] text-slate-600 dark:text-slate-300">Hit rate (5/200)</p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">~ 2.5%</p>
+                <div className="rounded-xl px-4 py-3 bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 text-center">
+                  <p className="text-sm text-slate-600 dark:text-slate-300">Hit rate (5/200)</p>
+                  <p className="text-base font-semibold text-slate-900 dark:text-slate-100">~ 2.5%</p>
                 </div>
               </motion.div>
             </motion.div>
