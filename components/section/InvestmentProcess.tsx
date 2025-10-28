@@ -1,4 +1,3 @@
-// components/sections/InvestmentProcess.tsx
 "use client";
 
 import { motion } from 'framer-motion';
@@ -55,7 +54,7 @@ export function InvestmentProcess() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-row relative lg:top-60 md:flex-col items-center justify-center md:justify-start gap-4 md:gap-20 lg:left-8"
+            className="flex flex-row relative lg:top-60 md:flex-col items-center justify-center md:justify-start gap-4 md:gap-20 md:left-20 lg:left-30"
             aria-label="Opportunity funnel counts"
           >
             {funnelCounts.map((n, i) => (
@@ -173,15 +172,17 @@ export function InvestmentProcess() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="mt-5 grid grid-cols-2 gap-3"
+                className="mt-5 flex flex-row justify-center items-center gap-4 flex-wrap"
               >
-                <div className="rounded-xl px-4 py-3 bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 text-center">
-                  <p className="text-sm text-slate-600 dark:text-slate-300">Idea → Action</p>
-                  <p className="text-base font-semibold text-slate-900 dark:text-slate-100">~ 2–6 weeks</p>
-                </div>
-                <div className="rounded-xl px-4 py-3 bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 text-center">
-                  <p className="text-sm text-slate-600 dark:text-slate-300">Hit rate (5/200)</p>
-                  <p className="text-base font-semibold text-slate-900 dark:text-slate-100">~ 2.5%</p>
+                <div className="flex flex-row gap-4 flex-wrap justify-center items-center w-full">
+                  <div className="rounded-xl px-4 py-3 bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 text-center">
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Idea → Action</p>
+                    <p className="text-base font-semibold text-slate-900 dark:text-slate-100">~ 2–6 weeks</p>
+                  </div>
+                  <div className="rounded-xl px-4 py-3 bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 text-center">
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Hit rate (5/200)</p>
+                    <p className="text-base font-semibold text-slate-900 dark:text-slate-100">~ 2.5%</p>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
