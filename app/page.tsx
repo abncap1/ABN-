@@ -172,11 +172,6 @@ export default function Home() {
               <Button size="lg" variant="outline" className="group border-white/50 dark:text-white hover:bg-white hover:text-gray-900 dark:hover:text-black backdrop-blur-sm" asChild>
                 <Link href="/services">
                   Learn More
-                  <motion.div
-                    className="ml-2 w-2 h-2 bg-white rounded-full group-hover:bg-gray-900"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
                 </Link>
               </Button>
             </motion.div>
