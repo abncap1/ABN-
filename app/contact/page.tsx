@@ -1,82 +1,86 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { toast } from 'sonner';
-import { ScrollReveal, StaggerContainer } from '@/components/scroll-reveal';
+import React, { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { motion } from "framer-motion";
+import { toast } from "sonner";
+import { ScrollReveal, StaggerContainer } from "@/components/scroll-reveal";
 
 const contactInfo = [
   {
     icon: MapPin,
-    title: 'Office Location',
-    details: ['B 308, Damji Shamji Corporate Square, Laxmi Nagar, Ghatkopar E, Mumbai 75',],
-    color: 'text-blue-600',
-    bgColor: 'from-blue-500/10 to-blue-600/10'
+    title: "Office Location",
+    details: [
+      "B 308, Damji Shamji Corporate Square, Laxmi Nagar, Ghatkopar E, Mumbai 75",
+    ],
+    color: "text-blue-600",
+    bgColor: "from-blue-500/10 to-blue-600/10",
   },
   {
     icon: Phone,
-    title: 'Phone',
-    details: ['+91 816-930-5682', 'Mon-Fri 9:00 AM - 6:00 PM IST'],
-    color: 'text-green-600',
-    bgColor: 'from-green-500/10 to-green-600/10'
+    title: "Phone",
+    details: ["+91 816-930-5682", "Mon-Fri 9:00 AM - 6:00 PM IST"],
+    color: "text-green-600",
+    bgColor: "from-green-500/10 to-green-600/10",
   },
   {
     icon: Mail,
-    title: 'Email',
-    details: ['contact@abncapital.in', 'We respond within 24 hours'],
-    color: 'text-purple-600',
-    bgColor: 'from-purple-500/10 to-purple-600/10'
+    title: "Email",
+    details: ["contact@abncapital.in", "We respond within 24 hours"],
+    color: "text-purple-600",
+    bgColor: "from-purple-500/10 to-purple-600/10",
   },
 ];
 
 const benefits = [
-  'Personalized investment strategies',
-  '24/7 client support',
-  'Transparent fee structure',
-  'Award-winning portfolio management',
-  'Regulatory compliance and security'
+  "Personalized investment strategies",
+  "24/7 client support",
+  "Transparent fee structure",
+  "Award-winning portfolio management",
+  "Regulatory compliance and security",
 ];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    company: '',
-    investmentAmount: '',
-    serviceType: '',
-    message: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    investmentAmount: "",
+    serviceType: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
+
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
+
       // Attempt to read text first to avoid "Unexpected end of JSON input"
       const raw = await response.text();
       let parsed: any = null;
@@ -85,7 +89,7 @@ export default function Contact() {
       } catch (_) {
         // not JSON – keep `parsed` as null
       }
-  
+
       if (response.ok && parsed?.success) {
         toast.success("Your message has been sent successfully!");
         setFormData({
@@ -99,7 +103,10 @@ export default function Contact() {
           message: "",
         });
       } else {
-        const serverMsg = parsed?.error || raw || "Failed to send message. Please try again later.";
+        const serverMsg =
+          parsed?.error ||
+          raw ||
+          "Failed to send message. Please try again later.";
         toast.error(serverMsg);
         console.error("/api/send-email error:", serverMsg);
       }
@@ -125,18 +132,22 @@ export default function Contact() {
         >
           <div className="w-full h-full bg-[url('https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg')] bg-cover bg-center" />
         </motion.div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <ScrollReveal direction="up" className="text-center max-w-4xl mx-auto">
-            <Badge variant="outline" className="mb-6">Get In Touch</Badge>
+          <ScrollReveal
+            direction="up"
+            className="text-center max-w-4xl mx-auto"
+          >
+            <Badge variant="outline" className="mb-6">
+              Get In Touch
+            </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Let's Discuss Your
               <span className="gradient-text block">Investment Goals</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Ready to take control of your financial future? Contact our team of investment 
-              professionals to schedule a consultation and learn how we can help you achieve 
-              your wealth management objectives.
+              For direct onboarding as a PMS investor with us, please connect
+              with us below.
             </p>
           </ScrollReveal>
         </div>
@@ -152,14 +163,20 @@ export default function Contact() {
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className={`text-center group hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br ${info.bgColor} relative overflow-hidden`}>
+                <Card
+                  className={`text-center group hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br ${info.bgColor} relative overflow-hidden`}
+                >
                   <motion.div
                     className="absolute top-2 right-2 w-6 h-6 bg-white/10 rounded-full"
                     animate={{
                       scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.6, 0.3]
+                      opacity: [0.3, 0.6, 0.3],
                     }}
-                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: index * 0.5,
+                    }}
                   />
 
                   <CardContent className="p-6 relative z-10">
@@ -199,14 +216,15 @@ export default function Contact() {
                 transition={{ duration: 0.3 }}
               >
                 <Card className="border-0 shadow-2xl relative overflow-hidden">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 hover:opacity-100 transition-opacity duration-500"
-                  />
-                  
+                  <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 hover:opacity-100 transition-opacity duration-500" />
+
                   <CardHeader className="relative z-10">
-                    <CardTitle className="text-2xl">Send us a Message</CardTitle>
+                    <CardTitle className="text-2xl">
+                      Send us a Message
+                    </CardTitle>
                     <p className="text-muted-foreground">
-                      Fill out the form below and we'll get back to you as soon as possible.
+                      Fill out the form below and we'll get back to you as soon
+                      as possible.
                     </p>
                   </CardHeader>
                   <CardContent className="relative z-10">
@@ -329,17 +347,23 @@ export default function Contact() {
                               <motion.div
                                 className="w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"
                                 animate={{ rotate: 360 }}
-                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                transition={{
+                                  duration: 1,
+                                  repeat: Infinity,
+                                  ease: "linear",
+                                }}
                               />
                               Sending...
                             </>
                           ) : (
                             <>
-                              <span className="relative z-10">Send Message</span>
+                              <span className="relative z-10">
+                                Send Message
+                              </span>
                               <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform relative z-10" />
                               <motion.div
                                 className="absolute inset-0 bg-gradient-to-r from-primary to-accent"
-                                initial={{ x: '-100%' }}
+                                initial={{ x: "-100%" }}
                                 whileHover={{ x: 0 }}
                                 transition={{ duration: 0.3 }}
                               />
@@ -375,8 +399,6 @@ export default function Contact() {
                   </div>
                 </Card>
               </motion.div>
-
-             
             </ScrollReveal>
           </div>
         </div>

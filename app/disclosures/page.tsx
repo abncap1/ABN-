@@ -36,7 +36,7 @@ const disclosureDocuments = [
     lastUpdated: "2024-01-15",
     color: "from-green-500/10 to-green-600/10",
     iconColor: "text-green-600",
-    downloadUrl: "/documents/investor-charter.pdf",
+    downloadUrl: "https://drive.google.com/file/d/1WtOkCofsLF7mK5a9YyrWTidEvq67QNRp/view?usp=drive_link",
   },
   {
     id: "status-complaints",
@@ -50,7 +50,7 @@ const disclosureDocuments = [
     lastUpdated: "2024-01-01",
     color: "from-orange-500/10 to-orange-600/10",
     iconColor: "text-orange-600",
-    downloadUrl: "/documents/status-of-complaints.pdf",
+    downloadUrl: "https://docs.google.com/spreadsheets/d/1PAKlrzbUNW8LreDVYJUG98txliDkPAy0KfMp7jZMm9w/edit?usp=sharing",
   },
   {
     id: "investor-grievance",
@@ -64,7 +64,7 @@ const disclosureDocuments = [
     lastUpdated: "2024-01-10",
     color: "from-purple-500/10 to-purple-600/10",
     iconColor: "text-purple-600",
-    downloadUrl: "/documents/investor-grievance.pdf",
+    downloadUrl: "https://drive.google.com/file/d/1RP-FstbU3p9-4e5YEQTgBDUOpLI8qIgU/view?usp=drive_link",
   },
   {
     id: "sebi-scores",
@@ -78,7 +78,7 @@ const disclosureDocuments = [
     lastUpdated: "2024-01-05",
     color: "from-indigo-500/10 to-indigo-600/10",
     iconColor: "text-indigo-600",
-    downloadUrl: "/documents/sebi-scores.pdf",
+    downloadUrl: "https://scores.sebi.gov.in/",
   },
   {
     id: "odr",
@@ -92,7 +92,7 @@ const disclosureDocuments = [
     lastUpdated: "2024-01-08",
     color: "from-teal-500/10 to-teal-600/10",
     iconColor: "text-teal-600",
-    downloadUrl: "/documents/odr.pdf",
+    downloadUrl: "https://smartodr.in/login",
   },
   {
     id: "fee-calculator",
@@ -106,7 +106,7 @@ const disclosureDocuments = [
     lastUpdated: "2024-01-12",
     color: "from-emerald-500/10 to-emerald-600/10",
     iconColor: "text-emerald-600",
-    downloadUrl: "/documents/fee-calculator.pdf",
+    downloadUrl: "https://docs.google.com/spreadsheets/d/1WVjo1U0_htJ_tyC1pliUJJ_QpuGn5tTD/edit?usp=drive_link&ouid=103591709488545894839&rtpof=true&sd=true",
   },
   {
     id: "accredited-investor",
@@ -120,7 +120,21 @@ const disclosureDocuments = [
     lastUpdated: "2024-01-18",
     color: "from-cyan-500/10 to-cyan-600/10",
     iconColor: "text-cyan-600",
-    downloadUrl: "/documents/accredited-investor-framework.pdf",
+    downloadUrl: "https://drive.google.com/file/d/1IU844Y9jFlkl-C8_I35ZnWpIHviK68cw/view?usp=drive_link",
+  },
+  {
+    id: "disclosure-document",
+    title: "Disclosure Document",
+    description:
+      "Disclosure document containing all material information about our portfolio management services, fees, and risk factors.",
+    icon: CheckCircle,
+    status: "Available",
+    category: "Disclosure Document",
+    size: "1.7 MB",
+    lastUpdated: "2024-01-18",
+    color: "from-cyan-500/10 to-cyan-600/10",
+    iconColor: "text-cyan-600",
+    downloadUrl: "https://drive.google.com/file/d/1ZZ_l0S3riR2SCvq1jEDbOZUT6VB3OmgP/view?usp=drive_link",
   },
 ];
 
@@ -133,37 +147,42 @@ export default function Disclosures() {
       ? disclosureDocuments
       : disclosureDocuments.filter((doc) => doc.category === selectedCategory);
 
-  const handleDownload = async (document: (typeof disclosureDocuments)[0]) => {
-    if (!document.downloadUrl) {
-      toast.error("Document not yet available for download");
-      return;
-    }
-
-    setDownloadingId(document.id);
-
-    try {
-      // Simulate download process
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // In a real implementation, you would:
-      // 1. Track download analytics
-      // 2. Verify user permissions if needed
-      // 3. Generate download link or serve file
-
-      // For demo purposes, we'll show a success message
-      toast.success(`${document.title} downloaded successfully`);
-
-      // In production, you would trigger the actual download:
-      // const link = document.createElement('a');
-      // link.href = document.downloadUrl;
-      // link.download = `${document.title}.pdf`;
-      // link.click();
-    } catch (error) {
-      toast.error("Download failed. Please try again.");
-    } finally {
-      setDownloadingId(null);
-    }
-  };
+      const handleDownload = async (doc: (typeof disclosureDocuments)[0]) => {
+        if (!doc.downloadUrl) {
+          toast.error("Document not yet available for download");
+          return;
+        }
+      
+        setDownloadingId(doc.id);
+      
+        try {
+          // Optional: short delay just for showing the loading state
+          await new Promise((resolve) => setTimeout(resolve, 500));
+      
+          // Trigger actual download in the browser
+          if (typeof window !== "undefined") {
+            if (doc.downloadUrl.startsWith("http")) {
+              // For external URLs (e.g. Google Drive), open in new tab
+              window.open(doc.downloadUrl, "_blank");
+            } else if (typeof document !== "undefined") {
+              // For relative URLs, create a temporary <a> and click it
+              const link = document.createElement("a");
+              link.href = doc.downloadUrl;
+              // Let the browser decide filename / download vs open
+              link.download = "";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }
+          }
+      
+          toast.success(`${doc.title} downloaded successfully`);
+        } catch (error) {
+          toast.error("Download failed. Please try again.");
+        } finally {
+          setDownloadingId(null);
+        }
+      };
 
   const handleDownloadAll = async () => {
     const availableDocuments = disclosureDocuments.filter(

@@ -377,7 +377,11 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section> */}
-      
+      <footer className="w-full border-t bg-background/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs sm:text-sm text-center text-muted-foreground">
+          (C) ABN Capital Asset Managers LLP. SEBI Registered Portfolio Management Serivce (PMS) Number INP000009685. All Rights Reserved.
+        </div>
+      </footer>
     </div>
   );
 }
