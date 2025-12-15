@@ -319,24 +319,7 @@ export default function Disclosures() {
                     </p>
 
                     {/* Document Info */}
-                    <div className="space-y-2 mb-6 text-sm text-muted-foreground">
-                      {document.size !== "TBD" && (
-                        <div className="flex items-center justify-between">
-                          <span>File Size:</span>
-                          <span className="font-medium">{document.size}</span>
-                        </div>
-                      )}
-                      {document.lastUpdated !== "TBD" && (
-                        <div className="flex items-center justify-between">
-                          <span>Last Updated:</span>
-                          <span className="font-medium">
-                            {new Date(
-                              document.lastUpdated
-                            ).toLocaleDateString()}
-                          </span>
-                        </div>
-                      )}
-                    </div>
+                    
 
                     {/* Download Button */}
                     <motion.div
@@ -354,12 +337,12 @@ export default function Disclosures() {
                         {downloadingId === document.id ? (
                           <>
                             <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
-                            Downloading...
+                            Loading...
                           </>
                         ) : document.downloadUrl ? (
                           <>
                             <Download className="h-4 w-4 mr-2" />
-                            Download PDF
+                            View
                           </>
                         ) : (
                           <>
@@ -395,7 +378,7 @@ export default function Disclosures() {
                 icon: Scale,
                 title: "SEBI Registration",
                 description:
-                  "ABN CAPITAL is registered with SEBI as a Portfolio Manager under registration number [Registration Number].",
+                  "ABN CAPITAL is registered with SEBI as a Portfolio Manager under registration number INP00009685.",
                 color: "from-blue-500/10 to-blue-600/10",
                 iconColor: "text-blue-600",
               },
