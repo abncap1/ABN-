@@ -51,7 +51,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
 
           <div className="min-w-0 flex-1">
             <h3 className="text-lg font-semibold">{member.name}</h3>
-            <p className="text-primary font-medium">{member.position}</p>
+            <p className="text-blue-500 font-medium">{member.position}</p>
             {member.bio && (
               <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
                 {member.bio}

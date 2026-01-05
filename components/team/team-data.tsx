@@ -56,10 +56,21 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: 4,
-    name: "Bhavya Joshi",
+    name: "Aditya",
+    position: "Research and Operations",
+    image: "/assets/Aditya.jpg",
+    linkedin: "https://www.linkedin.com/in/adityarevgade/",
+    email: "aditya.revgade@abncapital.in",
+    education: "B.Tech and MBA"
+  },
+  {
+    id: 5,
+    name: "Ansh",
     position: "Operations and Compliance",
-    image: "/assets/Bhavya.jpg",
-    education: "BCom (Banking & Insurance), MBA",
-    email: "bhavya.joshi@abncapital.in",
+    image: "/assets/Ansh.jpg",
+    linkedin: "https://www.linkedin.com/in/ansh-agrawal-61473923a/",
+    email: "ansh.agrawal@abncapital.in",
+    education: "B.Com (Pursuing)"
   },
 ];
+ 

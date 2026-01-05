@@ -17,6 +17,7 @@ const navItems = [
   { name: "Perspectives", href: "/perspectives" },
   { name: "Disclosures", href: "/disclosures" },
   { name: "Contact", href: "/contact" },
+  { name: "Client Login", href: "/client-login"}
 ];
 
 export function Navigation() {
