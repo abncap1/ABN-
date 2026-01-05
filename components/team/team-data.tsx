@@ -59,7 +59,6 @@ export const teamMembers: TeamMember[] = [
     name: "Aditya Revgade",
     position: "Research and Operations",
     image: "/assets/Aditya.jpg",
-    linkedin: "https://www.linkedin.com/in/adityarevgade/",
     email: "aditya.revgade@abncapital.in",
     education: "B.Tech and MBA"
   },
@@ -68,7 +67,6 @@ export const teamMembers: TeamMember[] = [
     name: "Ansh Agrawal",
     position: "Operations and Compliance",
     image: "/assets/Ansh.jpg",
-    linkedin: "https://www.linkedin.com/in/ansh-agrawal-61473923a/",
     email: "ansh.agrawal@abncapital.in",
     education: "B.Com (Pursuing)"
   },
