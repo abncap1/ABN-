@@ -56,7 +56,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: 4,
-    name: "Aditya",
+    name: "Aditya Revgade",
     position: "Research and Operations",
     image: "/assets/Aditya.jpg",
     linkedin: "https://www.linkedin.com/in/adityarevgade/",
@@ -65,7 +65,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: 5,
-    name: "Ansh",
+    name: "Ansh Agrawal",
     position: "Operations and Compliance",
     image: "/assets/Ansh.jpg",
     linkedin: "https://www.linkedin.com/in/ansh-agrawal-61473923a/",
