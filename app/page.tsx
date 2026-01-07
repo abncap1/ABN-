@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, TrendingUp, Shield, Users, BarChart3, Target, Award, Star, CheckCircle, Play } from 'lucide-react';
+import { ArrowRight, TrendingUp, Shield, Users, BarChart3, Target, Award, Star, CheckCircle, Play, RefreshCw, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ScrollReveal, StaggerContainer } from '@/components/scroll-reveal';
@@ -378,8 +378,35 @@ export default function Home() {
         </div>
       </section> */}
       <footer className="w-full border-t bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs sm:text-sm text-center text-muted-foreground">
-          (C) ABN Capital Asset Managers LLP. SEBI Registered Portfolio Management Serivce (PMS) Number INP000009685. All Rights Reserved.
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-xs sm:text-sm text-center sm:text-left text-muted-foreground">
+              (C) ABN Capital Asset Managers LLP. SEBI Registered Portfolio Management Serivce (PMS) Number INP000009685. All Rights Reserved.
+            </div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                variant="outline"
+                size="sm"
+                className="group"
+                onClick={() => window.open('https://smartodr.in/login', '_blank')}
+                asChild
+              >
+                <a
+                  href="https://smartodr.in/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <RefreshCw className="h-4 w-4 text-teal-600" />
+                  <span>ODR Portal</span>
+                  <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </footer>
     </div>

@@ -120,7 +120,7 @@ const disclosureDocuments = [
     lastUpdated: "2024-01-18",
     color: "from-cyan-500/10 to-cyan-600/10",
     iconColor: "text-cyan-600",
-    downloadUrl: "https://drive.google.com/file/d/1IU844Y9jFlkl-C8_I35ZnWpIHviK68cw/view?usp=drive_link",
+    downloadUrl: "https://drive.google.com/file/d/1sLIffd509jkLfSRkbltJWVgeLS07J8w-/view?usp=drive_link",
   },
   {
     id: "disclosure-document",
