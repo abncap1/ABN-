@@ -100,6 +100,11 @@ const videos: VideoData[] = [
     embedUrl: "https://www.youtube.com/embed/fEroxqDOaps?si=lxmzU5nc97dBheIf",
     title: "",
   },
+  {
+    id: "fEroxqDOaps",
+    embedUrl: "https://www.youtube.com/embed/UbfrZ3zCk0I?si=V7bSmmY5L7TH0FWi",
+    title: "",
+  }
 ];
 
 export default function PerspectivePage() {
