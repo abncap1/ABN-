@@ -36,7 +36,7 @@ const disclosureDocuments = [
     lastUpdated: "2024-01-15",
     color: "from-green-500/10 to-green-600/10",
     iconColor: "text-green-600",
-    downloadUrl: "https://drive.google.com/file/d/1WtOkCofsLF7mK5a9YyrWTidEvq67QNRp/view?usp=drive_link",
+    downloadUrl: "https://drive.google.com/file/d/1TDrR-nGbgQ9ZX_5RvNfCXRawbQXpQ3SQ/view?usp=drive_link",
   },
   {
     id: "status-complaints",
