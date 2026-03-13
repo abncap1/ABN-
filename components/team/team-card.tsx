@@ -50,7 +50,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
           </div>
 
           <div className="min-w-0 flex-1">
-            <h3 className="text-lg font-semibold">{member.name}</h3>
+            <h2 className="text-lg font-semibold">{member.name}</h2>
             <p className="text-blue-500 font-medium">{member.position}</p>
             {member.bio && (
               <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
@@ -59,18 +59,22 @@ export function TeamCard({ member }: { member: TeamMember }) {
             )}
 
             {member.expertise && member.expertise.length > 0 && (
-              <div className="mt-3 flex flex-wrap gap-2">
+              <ul className="mt-3 flex flex-wrap gap-2 list-none p-0">
                 {member.expertise.slice(0, 2).map((skill) => (
-                  <Badge key={skill} variant="secondary" className="text-xs">
-                    {skill}
-                  </Badge>
+                  <li key={skill}>
+                    <Badge variant="secondary" className="text-xs">
+                      {skill}
+                    </Badge>
+                  </li>
                 ))}
                 {member.expertise.length > 2 && (
-                  <Badge variant="outline" className="text-xs">
-                    +{member.expertise.length - 2} more
-                  </Badge>
+                  <li>
+                    <Badge variant="outline" className="text-xs">
+                      +{member.expertise.length - 2} more
+                    </Badge>
+                  </li>
                 )}
-              </div>
+              </ul>
             )}
 
             <div className="mt-4 flex items-center gap-2">
@@ -113,7 +117,11 @@ export function TeamCard({ member }: { member: TeamMember }) {
 
               <Dialog open={open} onOpenChange={setOpen}>
                 <DialogTrigger asChild>
-                  <Button variant="outline" className="ml-auto bg-transparent">
+                  <Button 
+                    variant="outline" 
+                    className="ml-auto bg-transparent"
+                    aria-label={`View ${member.name}'s profile`}
+                  >
                     View Profile
                   </Button>
                 </DialogTrigger>
@@ -196,13 +204,15 @@ export function TeamCard({ member }: { member: TeamMember }) {
                           <Star className="h-4 w-4 mr-2" />
                           Expertise
                         </h4>
-                        <div className="flex flex-wrap gap-2">
+                        <ul className="flex flex-wrap gap-2 list-none p-0">
                           {member.expertise.map((skill) => (
-                            <Badge key={skill} variant="secondary">
-                              {skill}
-                            </Badge>
+                            <li key={skill}>
+                              <Badge variant="secondary">
+                                {skill}
+                              </Badge>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </section>
                     )}
 

@@ -8,7 +8,7 @@ import { InvestmentProcess } from "@/components/section/InvestmentProcess";
 import StickyNav from "@/components/ui/StickyNav";
 export default function InvestingPage() {
   return (
-    <main className="min-h-screen">
+    <>
       {/* Global subtle particles/spotlight BG (Aceternity-inspired) */}
       <div className="fixed inset-0 pointer-events-none opacity-20 dark:opacity-10 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.3),transparent_50%)]" />
@@ -67,6 +67,6 @@ export default function InvestingPage() {
       </div>
 
       <InvestmentProcess />
-    </main>
+    </>
   );
 }

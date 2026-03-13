@@ -71,27 +71,24 @@ export function WhyUs() {
             </motion.div>
 
             {/* Cards */}
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+            <ul
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 list-none p-0"
             >
               {items.map((item, i) => (
-                <motion.article
-                  key={item.title}
-                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="group relative rounded-2xl p-6 backdrop-blur-md bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/10 shadow-xl ring-1 ring-inset ring-slate-900/5 dark:ring-white/10"
-                >
-                  <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-br from-amber-500/10 to-transparent" />
-                  <item.icon className="relative w-8 h-8 mb-4 text-amber-600 dark:text-amber-400" />
-                  <h3 className="relative text-xl font-semibold text-slate-900 dark:text-slate-100">{item.title}</h3>
-                  <p className="relative mt-1 text-lg leading-6 text-slate-700 dark:text-slate-300">{item.desc}</p>
-                </motion.article>
+                <li key={item.title}>
+                  <motion.article
+                    variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                    whileHover={{ y: -4, scale: 1.02 }}
+                    className="group relative rounded-2xl p-6 backdrop-blur-md bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/10 shadow-xl ring-1 ring-inset ring-slate-900/5 dark:ring-white/10 h-full"
+                  >
+                    <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-br from-amber-500/10 to-transparent" />
+                    <item.icon className="relative w-8 h-8 mb-4 text-amber-600 dark:text-amber-400" />
+                    <h3 className="relative text-xl font-semibold text-slate-900 dark:text-slate-100">{item.title}</h3>
+                    <p className="relative mt-1 text-lg leading-6 text-slate-700 dark:text-slate-300">{item.desc}</p>
+                  </motion.article>
+                </li>
               ))}
-            </motion.div>
+            </ul>
           </motion.div>
 
           <motion.div

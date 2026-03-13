@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 import { ScrollReveal, StaggerContainer } from "@/components/scroll-reveal";
 
 const contactInfo = [
@@ -57,6 +58,7 @@ export default function Contact() {
     serviceType: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (
@@ -64,6 +66,14 @@ export default function Contact() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user types
+    if (errors[name]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   const handleSelectChange = (name: string, value: string) => {
@@ -118,8 +128,32 @@ export default function Contact() {
     }
   };
 
+  const validateField = (name: string, value: string) => {
+    if (["firstName", "lastName", "email", "message"].includes(name) && !value.trim()) {
+      return "This field is required";
+    }
+    if (name === "email" && value && !/^\S+@\S+\.\S+$/.test(value)) {
+      return "Please enter a valid email address";
+    }
+    return "";
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    const error = validateField(name, value);
+    if (error) {
+      setErrors((prev) => ({ ...prev, [name]: error }));
+    } else {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+  };
+
   return (
-    <div className="min-h-screen pt-16 overflow-x-hidden">
+    <>
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-primary/5 to-accent/5 relative overflow-hidden">
         <motion.div
@@ -156,56 +190,57 @@ export default function Contact() {
       {/* Contact Info Cards */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 list-none p-0">
             {contactInfo.map((info, index) => (
-              <motion.div
-                key={info.title}
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Card
-                  className={`text-center group hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br ${info.bgColor} relative overflow-hidden`}
+              <li key={info.title}>
+                <motion.div
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <motion.div
-                    className="absolute top-2 right-2 w-6 h-6 bg-white/10 rounded-full"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.6, 0.3],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: index * 0.5,
-                    }}
-                  />
-
-                  <CardContent className="p-6 relative z-10">
+                  <Card
+                    className={`text-center group hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br ${info.bgColor} relative overflow-hidden h-full`}
+                  >
                     <motion.div
-                      className={`w-14 h-14 rounded-full bg-background shadow-md flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
-                      whileHover={{ rotate: 10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <info.icon className={`h-8 w-8 ${info.color}`} />
-                    </motion.div>
-                    <h3 className="font-semibold text-lg sm:text-xl mb-4 group-hover:text-primary transition-colors">
-                      {info.title}
-                    </h3>
-                    {info.details.map((detail, idx) => (
-                      <motion.p
-                        key={idx}
-                        className="text-base sm:text-lg text-muted-foreground mb-2"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.1 }}
+                      className="absolute top-2 right-2 w-6 h-6 bg-white/10 rounded-full"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.6, 0.3],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: index * 0.5,
+                      }}
+                    />
+
+                    <CardContent className="p-6 relative z-10">
+                      <motion.div
+                        className={`w-14 h-14 rounded-full bg-background shadow-md flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                        whileHover={{ rotate: 10 }}
+                        transition={{ duration: 0.3 }}
                       >
-                        {detail}
-                      </motion.p>
-                    ))}
-                  </CardContent>
-                </Card>
-              </motion.div>
+                        <info.icon className={`h-8 w-8 ${info.color}`} />
+                      </motion.div>
+                      <h2 className="font-semibold text-lg sm:text-xl mb-4 group-hover:text-primary transition-colors">
+                        {info.title}
+                      </h2>
+                      {info.details.map((detail, idx) => (
+                        <motion.p
+                          key={idx}
+                          className="text-base sm:text-lg text-muted-foreground mb-2"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: idx * 0.1 }}
+                        >
+                          {detail}
+                        </motion.p>
+                      ))}
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </li>
             ))}
-          </StaggerContainer>
+          </ul>
 
           {/* Contact Form & Map */}
           <div className="grid lg:grid-cols-2 gap-12">
@@ -219,7 +254,7 @@ export default function Contact() {
                   <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 hover:opacity-100 transition-opacity duration-500" />
 
                   <CardHeader className="relative z-10">
-                    <CardTitle className="text-2xl">
+                    <CardTitle as="h2" className="text-2xl">
                       Send us a Message
                     </CardTitle>
                     <p className="text-muted-foreground">
@@ -228,6 +263,9 @@ export default function Contact() {
                     </p>
                   </CardHeader>
                   <CardContent className="relative z-10">
+                    <p className="text-sm text-muted-foreground mb-4" aria-hidden="true">
+                      * Indicates a required field
+                    </p>
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-4">
                         <motion.div
@@ -235,30 +273,54 @@ export default function Contact() {
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.1 }}
                         >
-                          <Label htmlFor="firstName">First Name *</Label>
+                          <Label htmlFor="firstName">First Name <span className="text-destructive">*</span></Label>
                           <Input
                             id="firstName"
                             name="firstName"
                             value={formData.firstName}
                             onChange={handleInputChange}
+                            onBlur={handleBlur}
                             required
-                            className="mt-1 transition-all duration-300 focus:scale-105"
+                            autoComplete="given-name"
+                            aria-invalid={!!errors.firstName}
+                            aria-describedby={errors.firstName ? "firstName-error" : undefined}
+                            className={cn(
+                              "mt-1 transition-all duration-300 focus:scale-105",
+                              errors.firstName && "border-destructive focus-visible:ring-destructive"
+                            )}
                           />
+                          {errors.firstName && (
+                            <p id="firstName-error" className="text-xs text-destructive mt-1">
+                              {errors.firstName}
+                            </p>
+                          )}
                         </motion.div>
                         <motion.div
                           initial={{ opacity: 0, x: 20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.2 }}
                         >
-                          <Label htmlFor="lastName">Last Name *</Label>
+                          <Label htmlFor="lastName">Last Name <span className="text-destructive">*</span></Label>
                           <Input
                             id="lastName"
                             name="lastName"
                             value={formData.lastName}
                             onChange={handleInputChange}
+                            onBlur={handleBlur}
                             required
-                            className="mt-1 transition-all duration-300 focus:scale-105"
+                            autoComplete="family-name"
+                            aria-invalid={!!errors.lastName}
+                            aria-describedby={errors.lastName ? "lastName-error" : undefined}
+                            className={cn(
+                              "mt-1 transition-all duration-300 focus:scale-105",
+                              errors.lastName && "border-destructive focus-visible:ring-destructive"
+                            )}
                           />
+                          {errors.lastName && (
+                            <p id="lastName-error" className="text-xs text-destructive mt-1">
+                              {errors.lastName}
+                            </p>
+                          )}
                         </motion.div>
                       </div>
 
@@ -268,16 +330,28 @@ export default function Contact() {
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.3 }}
                         >
-                          <Label htmlFor="email">Email Address *</Label>
+                          <Label htmlFor="email">Email Address <span className="text-destructive">*</span></Label>
                           <Input
                             id="email"
                             name="email"
                             type="email"
                             value={formData.email}
                             onChange={handleInputChange}
+                            onBlur={handleBlur}
                             required
-                            className="mt-1 transition-all duration-300 focus:scale-105"
+                            autoComplete="email"
+                            aria-invalid={!!errors.email}
+                            aria-describedby={errors.email ? "email-error" : undefined}
+                            className={cn(
+                              "mt-1 transition-all duration-300 focus:scale-105",
+                              errors.email && "border-destructive focus-visible:ring-destructive"
+                            )}
                           />
+                          {errors.email && (
+                            <p id="email-error" className="text-xs text-destructive mt-1">
+                              {errors.email}
+                            </p>
+                          )}
                         </motion.div>
                         <motion.div
                           initial={{ opacity: 0, x: 20 }}
@@ -291,6 +365,7 @@ export default function Contact() {
                             type="tel"
                             value={formData.phone}
                             onChange={handleInputChange}
+                            autoComplete="tel"
                             className="mt-1 transition-all duration-300 focus:scale-105"
                           />
                         </motion.div>
@@ -307,6 +382,7 @@ export default function Contact() {
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
+                          autoComplete="organization"
                           className="mt-1 transition-all duration-300 focus:scale-105"
                         />
                       </motion.div>
@@ -316,17 +392,28 @@ export default function Contact() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.8 }}
                       >
-                        <Label htmlFor="message">Message *</Label>
+                        <Label htmlFor="message">Message <span className="text-destructive">*</span></Label>
                         <Textarea
                           id="message"
                           name="message"
                           value={formData.message}
                           onChange={handleInputChange}
+                          onBlur={handleBlur}
                           required
                           rows={4}
-                          className="mt-1 transition-all duration-300 focus:scale-105"
+                          aria-invalid={!!errors.message}
+                          aria-describedby={errors.message ? "message-error" : undefined}
+                          className={cn(
+                            "mt-1 transition-all duration-300 focus:scale-105",
+                            errors.message && "border-destructive focus-visible:ring-destructive"
+                          )}
                           placeholder="Tell us about your investment goals and how we can help..."
                         />
+                        {errors.message && (
+                          <p id="message-error" className="text-xs text-destructive mt-1">
+                            {errors.message}
+                          </p>
+                        )}
                       </motion.div>
 
                       <motion.div
@@ -395,6 +482,7 @@ export default function Contact() {
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                       className="absolute inset-0"
+                      title="Location map of Damji Shamji Corporate Square, Mumbai"
                     />
                   </div>
                 </Card>
@@ -403,6 +491,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

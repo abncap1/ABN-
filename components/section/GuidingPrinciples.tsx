@@ -47,13 +47,7 @@ export function GuidingPrinciples() {
           </motion.div>
 
           {/* Glassy cards */}
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-          >
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 list-none p-0">
             {[
               {
                 icon: Eye,
@@ -71,26 +65,27 @@ export function GuidingPrinciples() {
                 desc: "Anything can happen. The market is almost always right; manage risk first.",
               },
             ].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className="group relative rounded-2xl p-6 backdrop-blur-md bg-white/55 dark:bg-white/5 border border-white/40 dark:border-white/10 shadow-xl ring-1 ring-inset ring-slate-900/5 dark:ring-white/10"
-              >
-                <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-br from-white/40 to-transparent dark:from-white/10" />
-                <item.icon className="relative w-8 h-8 mb-4 text-indigo-600 dark:text-indigo-400" />
-                <h3 className="relative text-xl font-semibold text-slate-900 dark:text-slate-100">
-                  {item.title}
-                </h3>
-                <p className="relative mt-1 text-lg leading-6 text-slate-600 dark:text-slate-400">
-                  {item.desc}
-                </p>
-              </motion.div>
+              <li key={i}>
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  className="group relative rounded-2xl p-6 backdrop-blur-md bg-white/55 dark:bg-white/5 border border-white/40 dark:border-white/10 shadow-xl ring-1 ring-inset ring-slate-900/5 dark:ring-white/10 h-full"
+                >
+                  <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-br from-white/40 to-transparent dark:from-white/10" />
+                  <item.icon className="relative w-8 h-8 mb-4 text-indigo-600 dark:text-indigo-400" />
+                  <h2 className="relative text-xl font-semibold text-slate-900 dark:text-slate-100">
+                    {item.title}
+                  </h2>
+                  <p className="relative mt-1 text-lg leading-6 text-slate-600 dark:text-slate-400">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              </li>
             ))}
-          </motion.div>
+          </ul>
         </motion.div>
 
         {/* Right: Illustrative Image Card with soft parallax */}

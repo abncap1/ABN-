@@ -8,9 +8,16 @@ interface SectionHeaderProps {
   caption: string;
   gradient1?: string; // e.g., "from-slate-600 to-slate-800"
   gradient2?: string; // e.g., "from-blue-600 via-indigo-600 to-purple-600"
+  level?: 'h1' | 'h2' | 'h3';
 }
 
-export function SectionHeader({ title, caption, gradient1 = "from-slate-600 to-slate-800", gradient2 = "from-blue-600 via-indigo-600 to-slate-600" }: SectionHeaderProps) {
+export function SectionHeader({ 
+  title, 
+  caption, 
+  gradient1 = "from-slate-600 to-slate-800", 
+  gradient2 = "from-blue-600 via-indigo-600 to-slate-600",
+  level: Tag = 'h2'
+}: SectionHeaderProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -19,14 +26,18 @@ export function SectionHeader({ title, caption, gradient1 = "from-slate-600 to-s
       transition={{ duration: 0.6 }}
       className="text-center lg:text-left space-y-4"
     >
-      {/* Main Title: Split gradient text */}
+      {/* Main Title: Single heading with internal spans */}
       <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-2 sm:gap-0">
-        <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold bg-clip-text dark:text-gray-100 text-transparent bg-gradient-to-r ${gradient1} leading-tight`}>
-          {title[0]}
-        </h1>
-        <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${gradient2} leading-tight`}>
-          {title[1]}
-        </h1>
+        <Tag className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+          <span className={`bg-clip-text dark:text-gray-100 text-transparent bg-gradient-to-r ${gradient1}`}>
+            {title[0]}
+          </span>
+          {/* Add a space between parts if they are on the same line */}
+          <span className="inline sm:hidden">&nbsp;</span>
+          <span className={`bg-clip-text text-transparent bg-gradient-to-r ${gradient2}`}>
+            &nbsp;{title[1]}
+          </span>
+        </Tag>
       </div>
       
       {/* Caption: Amber subhead chip */}

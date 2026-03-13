@@ -111,7 +111,7 @@ export default function PerspectivePage() {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900">
+    <>
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <span className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium px-4 py-2 rounded-full mb-6">
@@ -150,49 +150,51 @@ export default function PerspectivePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          <ul className="grid lg:grid-cols-2 gap-8 mb-12 list-none p-0">
             {videos.map((video) => (
-              <div
-                key={video.id}
-                className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden"
-                onClick={() => setSelectedVideo(video)}
-              >
-                <div className="p-0">
-                  <div className="relative aspect-video bg-slate-100 dark:bg-slate-700 rounded-t-lg overflow-hidden">
-                    <iframe
-                      src={`${video.embedUrl}?rel=0&modestbranding=1`}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      title={video.title}
-                    />
-                    <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                      <div className="bg-blue-600/90 text-white rounded-full p-4">
-                        <Play className="h-8 w-8" />
+              <li key={video.id}>
+                <div
+                  className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden h-full"
+                  onClick={() => setSelectedVideo(video)}
+                >
+                  <div className="p-0">
+                    <div className="relative aspect-video bg-slate-100 dark:bg-slate-700 rounded-t-lg overflow-hidden">
+                      <iframe
+                        src={`${video.embedUrl}?rel=0&modestbranding=1`}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title={video.title || `Video ${video.id}`}
+                      />
+                      <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                        <div className="bg-blue-600/90 text-white rounded-full p-4">
+                          <Play className="h-8 w-8" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2 font-sans">
+                        {video.title || `Video Insight: ${video.id}`}
+                      </h2>
+                      <div className="mt-4 flex items-center justify-between">
+                        <button
+                          className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium inline-flex items-center font-sans"
+                          aria-label="Watch company introduction video"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedVideo(video);
+                          }}
+                        >
+                          Watch Now
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        </button>
                       </div>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 font-sans">
-                      {video.title}
-                    </h3>
-                    <div className="mt-4 flex items-center justify-between">
-                      <button
-                        className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium inline-flex items-center font-sans"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedVideo(video);
-                        }}
-                      >
-                        Watch Now
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -283,6 +285,6 @@ export default function PerspectivePage() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

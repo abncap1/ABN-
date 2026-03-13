@@ -54,31 +54,33 @@ export function Navigation() {
             </div> */}
             <img
               src="/assets/Logo.png"
-              alt="Logo"
+              alt="ABN Capital Asset Managers LLP logo, Homepage"
               className="h-16 w-48 object-contain ml-2 transition-all duration-300"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <ul className="hidden md:flex items-center space-x-8 list-none p-0">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  "relative text-base font-medium transition-colors duration-300 hover:text-yellow-600",
-                  pathname === item.href
-                    ? "text-yellow-600"
-                    : "text-gray-500 dark:text-gray-300"
-                )}
-              >
-                {item.name}
-                {pathname === item.href && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-yellow-600 rounded-full" />
-                )}
-              </Link>
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  aria-current={pathname === item.href ? "page" : undefined}
+                  className={cn(
+                    "relative text-base font-medium transition-colors duration-300 hover:text-yellow-600",
+                    pathname === item.href
+                      ? "text-yellow-600"
+                      : "text-gray-500 dark:text-gray-300"
+                  )}
+                >
+                  {item.name}
+                  {pathname === item.href && (
+                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-yellow-600 rounded-full" />
+                  )}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {/* Theme Toggle & Mobile Menu */}
           <div className="flex items-center space-x-2">
@@ -87,6 +89,8 @@ export function Navigation() {
               size="sm"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="relative group"
+              aria-pressed={theme === "dark"}
+              aria-label="Toggle theme"
             >
               <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -109,21 +113,25 @@ export function Navigation() {
                       ABN CAPITAL
                     </span>
                   </div>
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={cn(
-                        "text-left px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300",
-                        pathname === item.href
-                          ? "bg-primary text-primary-foreground"
-                          : "text-muted-foreground hover:text-primary hover:bg-accent"
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  <ul className="flex flex-col gap-2 list-none p-0">
+                    {navItems.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          aria-current={pathname === item.href ? "page" : undefined}
+                          className={cn(
+                            "block text-left px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300",
+                            pathname === item.href
+                              ? "bg-primary text-primary-foreground"
+                              : "text-muted-foreground hover:text-primary hover:bg-accent"
+                          )}
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </SheetContent>
             </Sheet>

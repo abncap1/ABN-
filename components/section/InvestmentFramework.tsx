@@ -148,27 +148,28 @@ export function InvestmentFramework() {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 list-none p-0">
                 {[
                   { icon: Factory, tag: 'Racetrack', title: 'Industry', desc: 'Growth, profit pools, disruption risk' },
                   { icon: Building, tag: 'Horse', title: 'Company', desc: 'Moat, differentiation, share' },
                   { icon: Users, tag: 'Jockey', title: 'Management', desc: 'Values, incentives, stewardship' },
                 ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ delay: i * 0.08 }}
-                    className="relative rounded-2xl p-5 backdrop-blur-md bg-white/60 dark:bg-white/5 border border-white/50 dark:border-white/10 shadow-xl ring-1 ring-inset ring-slate-900/5 dark:ring-white/10"
-                  >
-                    <item.icon className="w-6 h-6 mb-3 text-indigo-600 dark:text-indigo-400" />
-                    <p className="text-lg uppercase tracking-wide text-slate-500 dark:text-slate-400">{item.tag}</p>
-                    <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100">{item.title}</h4>
-                    <p className="mt-1 text-lg text-slate-600 dark:text-slate-400">{item.desc}</p>
-                  </motion.div>
+                  <li key={i}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ delay: i * 0.08 }}
+                      className="relative rounded-2xl p-5 backdrop-blur-md bg-white/60 dark:bg-white/5 border border-white/50 dark:border-white/10 shadow-xl ring-1 ring-inset ring-slate-900/5 dark:ring-white/10 h-full"
+                    >
+                      <item.icon className="w-6 h-6 mb-3 text-indigo-600 dark:text-indigo-400" />
+                      <p className="text-lg uppercase tracking-wide text-slate-500 dark:text-slate-400">{item.tag}</p>
+                      <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100">{item.title}</h4>
+                      <p className="mt-1 text-lg text-slate-600 dark:text-slate-400">{item.desc}</p>
+                    </motion.div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
 
 

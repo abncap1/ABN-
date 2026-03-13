@@ -64,7 +64,7 @@ const page = () => {
               <Shield className="h-8 w-8 text-primary" />
             </motion.div>
             <div>
-              <CardTitle className="text-2xl font-bold mb-2">
+              <CardTitle as="h1" className="text-2xl font-bold mb-2">
                 Client Portal Access
               </CardTitle>
               <CardDescription className="text-base">

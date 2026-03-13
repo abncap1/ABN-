@@ -213,7 +213,7 @@ export default function Disclosures() {
   };
 
   return (
-    <div className="min-h-screen pt-16 overflow-x-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900">
+    <>
       {/* Hero Section */}
       <section className="py-20 relative overflow-hidden">
         <motion.div
@@ -253,110 +253,110 @@ export default function Disclosures() {
       {/* Documents Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 list-none p-0">
             {filteredDocuments.map((document, index) => (
-              <motion.div
-                key={document.id}
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Card
-                  className={`h-full border-0 shadow-2xl bg-gradient-to-br ${document.color} backdrop-blur-md hover:shadow-3xl transition-all duration-500 group relative overflow-hidden`}
+              <li key={document.id}>
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="h-full"
                 >
-                  {/* Status Badge */}
-                  <div className="absolute top-4 right-4 z-10">
-                    <Badge
-                      variant={
-                        document.status === "Available"
-                          ? "default"
-                          : "secondary"
-                      }
-                      className={`${
-                        document.status === "Available"
-                          ? "bg-green-500 text-white"
-                          : "bg-yellow-500 text-white"
-                      }`}
-                    >
-                      {document.status}
-                    </Badge>
-                  </div>
-
-                  {/* Floating decoration */}
-                  <motion.div
-                    className="absolute top-6 left-6 w-8 h-8 bg-white/10 rounded-full"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.6, 0.3],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: index * 0.5,
-                    }}
-                  />
-
-                  <CardHeader className="relative z-10">
-                    <motion.div
-                      className={`w-16 h-16 rounded-full bg-background flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                      whileHover={{ rotate: 10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <document.icon
-                        className={`h-8 w-8 ${document.iconColor}`}
-                      />
-                    </motion.div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                      {document.title}
-                    </CardTitle>
-                    <Badge variant="outline" className="w-fit text-xs">
-                      {document.category}
-                    </Badge>
-                  </CardHeader>
-
-                  <CardContent className="relative z-10">
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {document.description}
-                    </p>
-
-                    {/* Document Info */}
-                    
-
-                    {/* Download Button */}
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button
-                        onClick={() => handleDownload(document)}
-                        disabled={
-                          !document.downloadUrl || downloadingId === document.id
+                  <Card
+                    className={`h-full border-0 shadow-2xl bg-gradient-to-br ${document.color} backdrop-blur-md hover:shadow-3xl transition-all duration-500 group relative overflow-hidden`}
+                  >
+                    {/* Status Badge */}
+                    <div className="absolute top-4 right-4 z-10">
+                      <Badge
+                        variant={
+                          document.status === "Available"
+                            ? "default"
+                            : "secondary"
                         }
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
-                        variant={document.downloadUrl ? "default" : "secondary"}
+                        className={`${
+                          document.status === "Available"
+                            ? "bg-green-500 text-white"
+                            : "bg-yellow-500 text-white"
+                        }`}
                       >
-                        {downloadingId === document.id ? (
-                          <>
-                            <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
-                            Loading...
-                          </>
-                        ) : document.downloadUrl ? (
-                          <>
-                            <Download className="h-4 w-4 mr-2" />
-                            View
-                          </>
-                        ) : (
-                          <>
-                            <Info className="h-4 w-4 mr-2" />
-                            Coming Soon
-                          </>
-                        )}
-                      </Button>
-                    </motion.div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                        {document.status}
+                      </Badge>
+                    </div>
+
+                    {/* Floating decoration */}
+                    <motion.div
+                      className="absolute top-6 left-6 w-8 h-8 bg-white/10 rounded-full"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.6, 0.3],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: index * 0.5,
+                      }}
+                    />
+
+                    <CardHeader className="relative z-10">
+                      <motion.div
+                        className={`w-16 h-16 rounded-full bg-background flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                        whileHover={{ rotate: 10 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <document.icon
+                          className={`h-8 w-8 ${document.iconColor}`}
+                        />
+                      </motion.div>
+                      <CardTitle as="h2" className="text-xl group-hover:text-primary transition-colors">
+                        {document.title}
+                      </CardTitle>
+                      <Badge variant="outline" className="w-fit text-xs">
+                        {document.category}
+                      </Badge>
+                    </CardHeader>
+
+                    <CardContent className="relative z-10">
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                        {document.description}
+                      </p>
+
+                      {/* Download Button */}
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Button
+                          onClick={() => handleDownload(document)}
+                          disabled={
+                            !document.downloadUrl || downloadingId === document.id
+                          }
+                          aria-label="View investment report"
+                          className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
+                          variant={document.downloadUrl ? "default" : "secondary"}
+                        >
+                          {downloadingId === document.id ? (
+                            <>
+                              <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+                              Loading...
+                            </>
+                          ) : document.downloadUrl ? (
+                            <>
+                              <Download className="h-4 w-4 mr-2" />
+                              View
+                            </>
+                          ) : (
+                            <>
+                              <Info className="h-4 w-4 mr-2" />
+                              Coming Soon
+                            </>
+                          )}
+                        </Button>
+                      </motion.div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </li>
             ))}
-          </StaggerContainer>
+          </ul>
         </div>
       </section>
 
@@ -449,6 +449,6 @@ export default function Disclosures() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

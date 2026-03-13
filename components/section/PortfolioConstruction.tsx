@@ -78,60 +78,57 @@ export function PortfolioConstruction() {
             gradient2="from-blue-600 via-indigo-600 to-purple-600"
           />
 
-          <motion.div
-            className="grid md:grid-cols-2 gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+          <ul
+            className="grid md:grid-cols-2 gap-6 list-none p-0"
           >
             {portfolioItems.map((item, i) => (
-              <motion.article
-                key={item.title}
-                variants={{ hidden: { opacity: 0, y: 28, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1 } }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                transition={{ duration: 0.35 }}
-                className="group relative rounded-2xl p-6 shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10 overflow-hidden"
-              >
-                {/* Card background + glass layer */}
-                <div className={`absolute inset-0 dark:bg-gray-800 opacity-90`} />
-                <div className="absolute inset-0 backdrop-blur-[2px] bg-white/10 dark:bg-black/20" />
-                {/* Glow */}
-                <div className={`pointer-events-none absolute -inset-12 rounded-[2rem] blur-3xl bg-gradient-to-br ${item.glow}`} />
+              <li key={item.title}>
+                <motion.article
+                  variants={{ hidden: { opacity: 0, y: 28, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1 } }}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  transition={{ duration: 0.35 }}
+                  className="group relative rounded-2xl p-6 shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10 overflow-hidden h-full"
+                >
+                  {/* Card background + glass layer */}
+                  <div className={`absolute inset-0 dark:bg-gray-800 opacity-90`} />
+                  <div className="absolute inset-0 backdrop-blur-[2px] bg-white/10 dark:bg-black/20" />
+                  {/* Glow */}
+                  <div className={`pointer-events-none absolute -inset-12 rounded-[2rem] blur-3xl bg-gradient-to-br ${item.glow}`} />
 
-                {/* Number badge */}
-                <div className="relative z-10 mb-4 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full grid place-items-center text-sm font-bold dark:text-white text-black shadow-lg ring-1 ring-white/30 bg-gradient-to-br from-amber-500 to-amber-600">
-                    {item.number}
+                  {/* Number badge */}
+                  <div className="relative z-10 mb-4 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full grid place-items-center text-sm font-bold dark:text-white text-black shadow-lg ring-1 ring-white/30 bg-gradient-to-br from-amber-500 to-amber-600">
+                      {item.number}
+                    </div>
+                    <h3 className="text-xl font-semibold dark:text-white drop-shadow-sm">{item.title}</h3>
                   </div>
-                  <h3 className="text-xl font-semibold dark:text-white drop-shadow-sm">{item.title}</h3>
-                </div>
 
-                {/* Allocation + icon */}
-                <div className="relative z-10 flex items-center justify-between mb-2">
-                  <p className="dark:text-white/90 font-semibold tracking-tight flex items-center gap-2">
-                    {item.allocation}
-                  </p>
-                  <div className="rounded-xl px-3 py-1 bg-white/15 dark:text-white/90 text-xs font-medium backdrop-blur-sm border border-white/20">
-                    {item.irr}
+                  {/* Allocation + icon */}
+                  <div className="relative z-10 flex items-center justify-between mb-2">
+                    <p className="dark:text-white/90 font-semibold tracking-tight flex items-center gap-2">
+                      {item.allocation}
+                    </p>
+                    <div className="rounded-xl px-3 py-1 bg-white/15 dark:text-white/90 text-xs font-medium backdrop-blur-sm border border-white/20">
+                      {item.irr}
+                    </div>
                   </div>
-                </div>
 
-                {/* Icon + description */}
-                <div className="relative z-10 mt-3 flex items-start gap-3">
-                  <div className="shrink-0 rounded-xl p-2 bg-white/15 border border-white/20 backdrop-blur-sm">
-                    <item.icon className="w-6 h-6 dark:text-white" />
+                  {/* Icon + description */}
+                  <div className="relative z-10 mt-3 flex items-start gap-3">
+                    <div className="shrink-0 rounded-xl p-2 bg-white/15 border border-white/20 backdrop-blur-sm">
+                      <item.icon className="w-6 h-6 dark:text-white" />
+                    </div>
+                    <p className="text-lg leading-6 dark:text-white/90">
+                      {item.desc}
+                    </p>
                   </div>
-                  <p className="text-lg leading-6 dark:text-white/90">
-                    {item.desc}
-                  </p>
-                </div>
 
-                {/* Sheen */}
-                <div className="pointer-events-none absolute -top-1/3 left-0 right-0 h-1/2 bg-gradient-to-b from-white/20 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.article>
+                  {/* Sheen */}
+                  <div className="pointer-events-none absolute -top-1/3 left-0 right-0 h-1/2 bg-gradient-to-b from-white/20 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.article>
+              </li>
             ))}
-          </motion.div>
+          </ul>
         </motion.div>
 
         {/* Right: Sticky Image Card with Caption (stacks on mobile) */}

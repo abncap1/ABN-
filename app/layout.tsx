@@ -8,7 +8,10 @@ import { Toaster } from '@/components/ui/sonner';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ABN CAPITAL - Premier Portfolio Management',
+  title: {
+    default: 'ABN CAPITAL - Premier Portfolio Management',
+    template: '%s - ABN CAPITAL',
+  },
   description: 'Professional portfolio management services with cutting-edge strategies and personalized investment solutions for sophisticated investors.',
   keywords: 'portfolio management, investment, wealth management, financial advisory, ABN CAPITAL',
   authors: [{ name: 'ABN CAPITAL' }],
@@ -30,6 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth suppressHydrationWarning">
       <body className={inter.className}>
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-black focus:p-4 focus:rounded-md focus:shadow-lg dark:focus:bg-gray-800 dark:focus:text-white"
+        >
+          Skip to main content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -37,7 +46,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navigation />
-          <main className="min-h-screen">
+          <main id="main-content" className="min-h-screen">
             {children}
           </main>
           <Toaster />

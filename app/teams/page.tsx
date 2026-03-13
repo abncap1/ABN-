@@ -3,10 +3,15 @@ import { Badge } from "@/components/ui/badge"
 import { TeamCard } from "@/components/team/team-card"
 import { TeamStats } from "@/components/team/team-stats"
 import { teamMembers } from "@/components/team/team-data"
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Team',
+}
 
 export default function TeamsPage() {
   return (
-    <main>
+    <>
       <header className="bg-muted/40 pt-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-center"> 
           <h1 className="text-3xl md:text-5xl font-bold text-balance">
@@ -21,11 +26,13 @@ export default function TeamsPage() {
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-2">
+          <ul className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-2 list-none p-0">
             {teamMembers.map((m) => (
-              <TeamCard key={m.id} member={m} />
+              <li key={m.id}>
+                <TeamCard member={m} />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -41,6 +48,6 @@ export default function TeamsPage() {
           <TeamStats />
         </div>
       </section>
-    </main>
+    </>
   )
 }

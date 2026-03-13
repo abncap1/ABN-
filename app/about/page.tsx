@@ -79,7 +79,7 @@ const aboutSections: FullPageSection[] = [
 
 export default function About() {
   return (
-    <div className="min-h-screen">
+    <>
       
       {/* Detailed Timeline Section */}
       <section className="bg-background">
@@ -111,7 +111,7 @@ export default function About() {
             </p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 list-none p-0">
             {[
               {
                 title: "Proven Track Record",
@@ -150,18 +150,20 @@ export default function About() {
                 stats: "24/7 Support"
               }
             ].map((item, index) => (
-              <ScrollReveal key={item.title} direction="up" delay={index * 0.1}>
-                <div className="bg-card rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-primary/20">
-                  <div className="text-4xl mb-4">{item.icon}</div>
-                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{item.description}</p>
-                  <div className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full inline-block">
-                    {item.stats}
+              <li key={item.title}>
+                <ScrollReveal direction="up" delay={index * 0.1}>
+                  <div className="bg-card rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-primary/20 h-full">
+                    <div className="text-4xl mb-4">{item.icon}</div>
+                    <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">{item.description}</p>
+                    <div className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full inline-block">
+                      {item.stats}
+                    </div>
                   </div>
-                </div>
-              </ScrollReveal>
+                </ScrollReveal>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -177,7 +179,7 @@ export default function About() {
             </p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 list-none p-0">
             {[
               {
                 year: "2024",
@@ -204,16 +206,18 @@ export default function About() {
                 description: "Leading the way in responsible investment strategies"
               }
             ].map((award, index) => (
-              <ScrollReveal key={award.year} direction="up" delay={index * 0.1}>
-                <div className="text-center bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg p-6 border border-border/50">
-                  <div className="text-2xl font-bold text-primary mb-2">{award.year}</div>
-                  <h3 className="text-lg font-semibold mb-2">{award.award}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{award.organization}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{award.description}</p>
-                </div>
-              </ScrollReveal>
+              <li key={award.year}>
+                <ScrollReveal direction="up" delay={index * 0.1}>
+                  <div className="text-center bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg p-6 border border-border/50 h-full">
+                    <div className="text-2xl font-bold text-primary mb-2">{award.year}</div>
+                    <h3 className="text-lg font-semibold mb-2">{award.award}</h3>
+                    <p className="text-sm text-muted-foreground mb-3">{award.organization}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{award.description}</p>
+                  </div>
+                </ScrollReveal>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -239,7 +243,7 @@ export default function About() {
               prioritizes long-term wealth creation while managing downside risk.
             </p>
             
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
+            <ul className="grid md:grid-cols-3 gap-8 mt-12 list-none p-0 text-left">
               {[
                 {
                   title: "Research-Driven",
@@ -254,22 +258,23 @@ export default function About() {
                   description: "Our strategies are designed for sustainable wealth creation over time"
                 }
               ].map((principle, index) => (
-                <motion.div
-                  key={principle.title}
-                  className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <h3 className="text-lg font-semibold mb-3">{principle.title}</h3>
-                  <p className="text-sm opacity-90">{principle.description}</p>
-                </motion.div>
+                <li key={principle.title}>
+                  <motion.div
+                    className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 h-full"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <h3 className="text-lg font-semibold mb-3">{principle.title}</h3>
+                    <p className="text-sm opacity-90">{principle.description}</p>
+                  </motion.div>
+                </li>
               ))}
-            </div>
+            </ul>
           </ScrollReveal>
         </div>
       </section>
-    </div>
+    </>
   );
 }
