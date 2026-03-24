@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'ABN CAPITAL - Premier Portfolio Management',
+    default: 'Home - ABN CAPITAL',
     template: '%s - ABN CAPITAL',
   },
   description: 'Professional portfolio management services with cutting-edge strategies and personalized investment solutions for sophisticated investors.',

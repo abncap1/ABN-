@@ -88,22 +88,22 @@ const videos: VideoData[] = [
   {
     id: "YtrY0oyd-Ls",
     embedUrl: "https://www.youtube.com/embed/YtrY0oyd-Ls",
-    title: "",
+    title: "Market Outlook",
   },
   {
     id: "LsV5nMxwTGM",
     embedUrl: "https://www.youtube.com/embed/LsV5nMxwTGM",
-    title: "",
+    title: "Investment Strategy",
   },
   {
     id: "LsV5dfvxwTGM",
     embedUrl: "https://www.youtube.com/embed/fEroxqDOaps?si=lxmzU5nc97dBheIf",
-    title: "",
+    title: "Portfolio Updates",
   },
   {
     id: "fEroxqDOaps",
     embedUrl: "https://www.youtube.com/embed/UbfrZ3zCk0I?si=V7bSmmY5L7TH0FWi",
-    title: "",
+    title: "Founder Interview",
   }
 ];
 
@@ -179,7 +179,7 @@ export default function PerspectivePage() {
                       <div className="mt-4 flex items-center justify-between">
                         <button
                           className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium inline-flex items-center font-sans"
-                          aria-label="Watch company introduction video"
+                          aria-label={`Watch ${video.title} video`}
                           onClick={(e) => {
                             e.stopPropagation();
                             setSelectedVideo(video);

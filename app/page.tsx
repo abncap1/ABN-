@@ -133,7 +133,7 @@ export default function Home() {
             >
               Investing in India’s 
               <motion.span 
-                className="block bg-gradient-to-r from-yellow-400 via-amber-400 to-red-500 bg-clip-text text-transparent"
+                className="block bg-gradient-to-r from-yellow-300 via-amber-300 to-red-400 bg-clip-text text-transparent"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}

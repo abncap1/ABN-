@@ -71,10 +71,10 @@ export function InvestmentProcess() {
                   <div className="pointer-events-none absolute inset-0 rounded-full bg-white/20 opacity-30" />
                 </div>
                 {i < funnelCounts.length - 1 && (
-                  <ChevronRight className="md:hidden absolute -right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400" />
+                  <ChevronRight className="md:hidden absolute -right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-600 dark:text-slate-400" />
                 )}
                 {i < funnelCounts.length - 1 && (
-                  <ArrowDown className="hidden md:block mx-auto mt-2 w-6 h-6 text-slate-400" />
+                  <ArrowDown className="hidden md:block mx-auto mt-2 w-6 h-6 text-slate-600 dark:text-slate-400" />
                 )}
               </motion.div>
             ))}

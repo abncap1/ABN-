@@ -110,7 +110,7 @@ export function WhyUs() {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-slate-900/0 to-transparent" />
-              <figcaption className="absolute bottom-4 left-4 right-4 text-center text-slate-100 bg-white/85 dark:bg-slate-800/80 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border border-white/40 dark:border-white/10">
+              <figcaption className="absolute bottom-4 left-4 right-4 text-center text-slate-900 dark:text-slate-100 bg-white/85 dark:bg-slate-800/80 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border border-white/40 dark:border-white/10">
                 Relationships-first investing, powered by experience
               </figcaption>
             </motion.figure>

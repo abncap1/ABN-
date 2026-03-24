@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Client Login',
+  title: 'Client Portal Access',
 };
 
 export default function ClientLoginLayout({

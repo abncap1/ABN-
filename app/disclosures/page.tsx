@@ -274,8 +274,8 @@ export default function Disclosures() {
                         }
                         className={`${
                           document.status === "Available"
-                            ? "bg-green-500 text-white"
-                            : "bg-yellow-500 text-white"
+                            ? "bg-green-700 text-white"
+                            : "bg-yellow-700 text-white"
                         }`}
                       >
                         {document.status}
@@ -329,7 +329,7 @@ export default function Disclosures() {
                           disabled={
                             !document.downloadUrl || downloadingId === document.id
                           }
-                          aria-label="View investment report"
+                          aria-label={`View ${document.title} document`}
                           className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
                           variant={document.downloadUrl ? "default" : "secondary"}
                         >

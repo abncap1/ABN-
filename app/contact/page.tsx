@@ -179,7 +179,7 @@ export default function Contact() {
               Let's Discuss Your
               <span className="gradient-text block">Investment Goals</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
               For direct onboarding as a PMS investor with us, please connect
               with us below.
             </p>
@@ -227,7 +227,7 @@ export default function Contact() {
                       {info.details.map((detail, idx) => (
                         <motion.p
                           key={idx}
-                          className="text-base sm:text-lg text-muted-foreground mb-2"
+                          className="text-base sm:text-lg text-slate-700 dark:text-slate-300 mb-2"
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: idx * 0.1 }}
@@ -263,7 +263,7 @@ export default function Contact() {
                     </p>
                   </CardHeader>
                   <CardContent className="relative z-10">
-                    <p className="text-sm text-muted-foreground mb-4" aria-hidden="true">
+                    <p className="text-sm text-slate-700 dark:text-slate-300 mb-4" aria-hidden="true">
                       * Indicates a required field
                     </p>
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -482,7 +482,7 @@ export default function Contact() {
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                       className="absolute inset-0"
-                      title="Location map of Damji Shamji Corporate Square, Mumbai"
+                      title="Location map of ABN Capital office, Mumbai"
                     />
                   </div>
                 </Card>

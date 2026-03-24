@@ -32,6 +32,7 @@ export function GuidingPrinciples() {
             caption="Core values that drive our investment philosophy"
             gradient1="from-slate-600 to-slate-800"
             gradient2="from-blue-600 via-indigo-600 to-slate-600"
+            level="h1"
           />
 
           <motion.div
@@ -112,7 +113,7 @@ export function GuidingPrinciples() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="absolute -bottom-4 -right-4 bg-amber-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg"
+            className="absolute -bottom-4 -right-4 bg-amber-700 dark:bg-amber-600 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg"
           >
             Wisdom in Action — Experience-driven decisions
           </motion.span>

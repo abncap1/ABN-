@@ -144,7 +144,7 @@ export function InvestmentFramework() {
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="h-2 w-2 rounded-full bg-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.18)]" />
                 <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">
-                  Uncontrollables <span className="text-amber-500">("Value")</span>
+                  Uncontrollables <span className="text-amber-700 dark:text-amber-500">("Value")</span>
                 </h3>
               </div>
 
@@ -184,7 +184,7 @@ export function InvestmentFramework() {
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="h-2 w-2 rounded-full bg-amber-500 shadow-[0_0_0_4px_rgba(245,158,11,0.18)]" />
                 <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">
-                  Controllables <span className="text-amber-500">("Price")</span>
+                  Controllables <span className="text-amber-700 dark:text-amber-500">("Price")</span>
                 </h3>
               </div>
 

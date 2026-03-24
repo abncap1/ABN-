@@ -54,7 +54,7 @@ export function Navigation() {
             </div> */}
             <img
               src="/assets/Logo.png"
-              alt="ABN Capital Asset Managers LLP logo, Homepage"
+              alt="ABN Capital Asset Managers LLP logo"
               className="h-16 w-48 object-contain ml-2 transition-all duration-300"
             />
           </Link>
@@ -67,15 +67,15 @@ export function Navigation() {
                   href={item.href}
                   aria-current={pathname === item.href ? "page" : undefined}
                   className={cn(
-                    "relative text-base font-medium transition-colors duration-300 hover:text-yellow-600",
+                    "relative text-base font-medium transition-colors duration-300 hover:text-amber-700 dark:hover:text-yellow-500",
                     pathname === item.href
-                      ? "text-yellow-600"
+                      ? "text-amber-700 dark:text-yellow-500"
                       : "text-gray-500 dark:text-gray-300"
                   )}
                 >
                   {item.name}
                   {pathname === item.href && (
-                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-yellow-600 rounded-full" />
+                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber-700 dark:bg-yellow-500 rounded-full" />
                   )}
                 </Link>
               </li>
@@ -90,11 +90,11 @@ export function Navigation() {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="relative group"
               aria-pressed={theme === "dark"}
-              aria-label="Toggle theme"
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
               <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
+              <span className="sr-only">{theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}</span>
             </Button>
 
             {/* Mobile Menu */}
