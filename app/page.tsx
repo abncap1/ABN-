@@ -86,7 +86,7 @@ export default function Home() {
 
           {/* Video Overlay */}
           {/* <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/50 to-blue-100/40" /> */}
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         
         {/* Floating Elements */}
@@ -133,7 +133,7 @@ export default function Home() {
             >
               Investing in India’s 
               <motion.span 
-                className="block bg-gradient-to-r from-yellow-300 via-amber-300 to-red-400 bg-clip-text text-transparent"
+                className="block bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-500 bg-clip-text text-transparent"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}

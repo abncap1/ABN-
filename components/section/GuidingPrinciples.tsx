@@ -40,7 +40,7 @@ export function GuidingPrinciples() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 ring-1 ring-amber-500/20 backdrop-blur"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 text-amber-800 dark:text-amber-300 ring-1 ring-amber-500/20 backdrop-blur"
           >
             <span className="text-sm">
               “The young men know the rules. The old men know the exceptions. ”

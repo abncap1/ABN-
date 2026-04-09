@@ -41,7 +41,7 @@ export function SectionHeader({
       </div>
       
       {/* Caption: Amber subhead chip */}
-      <div className="inline-flex items-center px-4 py-2 bg-amber-100/80 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full text-sm font-medium backdrop-blur-sm border border-amber-200/50 dark:border-amber-700/50">
+      <div className="inline-flex items-center px-4 py-2 bg-amber-100/80 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full text-sm font-medium backdrop-blur-sm border border-amber-200/50 dark:border-amber-700/50">
         {caption}
       </div>
     </motion.div>

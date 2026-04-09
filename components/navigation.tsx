@@ -67,15 +67,15 @@ export function Navigation() {
                   href={item.href}
                   aria-current={pathname === item.href ? "page" : undefined}
                   className={cn(
-                    "relative text-base font-medium transition-colors duration-300 hover:text-amber-700 dark:hover:text-yellow-500",
+                    "relative text-base font-medium transition-colors duration-300 hover:text-amber-800 dark:hover:text-yellow-500",
                     pathname === item.href
-                      ? "text-amber-700 dark:text-yellow-500"
+                      ? "text-amber-800 dark:text-yellow-500"
                       : "text-gray-500 dark:text-gray-300"
                   )}
                 >
                   {item.name}
                   {pathname === item.href && (
-                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber-700 dark:bg-yellow-500 rounded-full" />
+                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber-800 dark:bg-yellow-500 rounded-full" />
                   )}
                 </Link>
               </li>
