@@ -88,11 +88,11 @@ export default function Home() {
           {/* <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/50 to-blue-100/40" /> */}
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        
+
         {/* Floating Elements */}
         <motion.div
           className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl"
-          animate={{ 
+          animate={{
             y: [0, -20, 0],
             opacity: [0.3, 0.6, 0.3]
           }}
@@ -100,13 +100,13 @@ export default function Home() {
         />
         <motion.div
           className="absolute bottom-20 right-10 w-32 h-32 bg-accent/20 rounded-full blur-xl"
-          animate={{ 
+          animate={{
             y: [0, 20, 0],
             opacity: [0.3, 0.5, 0.3]
           }}
           transition={{ duration: 8, repeat: Infinity, delay: 2 }}
         />
-        
+
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -124,33 +124,31 @@ export default function Home() {
                 Premier Portfolio Management
               </Badge>
             </motion.div> */}
-            
+
             <motion.h1
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Investing in India’s 
-              <motion.span 
-                className="block bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-500 bg-clip-text text-transparent"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+              Investing in India’s
+              <span
+                className="block bg-gradient-to-r from-yellow-400 via-amber-400 to-red-500 bg-clip-text text-transparent"
+                style={{ opacity: 1, transform: "none" }}
               >
                 Frenzied Growth
-              </motion.span>
+              </span>
             </motion.h1>
-            
+
             <motion.p
               className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              Investing where Chaos sparks Opportunity… 
+              Investing where Chaos sparks Opportunity…
             </motion.p>
-            
+
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}

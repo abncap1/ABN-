@@ -323,6 +323,7 @@ export default function Disclosures() {
                       <motion.div
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
+                        tabIndex={-1}
                       >
                         <Button
                           onClick={() => handleDownload(document)}
