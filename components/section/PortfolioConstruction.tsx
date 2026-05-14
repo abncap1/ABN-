@@ -75,7 +75,7 @@ export function PortfolioConstruction() {
             title={["Portfolio", "Construction"]}
             caption="Infographic overview of position archetypes and target ranges"
             gradient1="from-slate-600 to-slate-800"
-            gradient2="from-blue-600 via-indigo-600 to-purple-600"
+            gradient2="from-blue-600 via-indigo-600 to-amber-600"
           />
 
           <ul
@@ -100,15 +100,15 @@ export function PortfolioConstruction() {
                     <div className="w-10 h-10 rounded-full grid place-items-center text-sm font-bold dark:text-white text-black shadow-lg ring-1 ring-white/30 bg-gradient-to-br from-amber-500 to-amber-600">
                       {item.number}
                     </div>
-                    <h3 className="text-xl font-semibold dark:text-white drop-shadow-sm">{item.title}</h3>
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white drop-shadow-sm">{item.title}</h3>
                   </div>
 
                   {/* Allocation + icon */}
                   <div className="relative z-10 flex items-center justify-between mb-2">
-                    <p className="dark:text-white/90 font-semibold tracking-tight flex items-center gap-2">
+                    <p className="text-slate-900 dark:text-white font-semibold tracking-tight flex items-center gap-2">
                       {item.allocation}
                     </p>
-                    <div className="rounded-xl px-3 py-1 bg-white/15 dark:text-white/90 text-xs font-medium backdrop-blur-sm border border-white/20">
+                    <div className="rounded-xl px-3 py-1 bg-white/15 text-slate-900 dark:text-white text-xs font-medium backdrop-blur-sm border border-white/20">
                       {item.irr}
                     </div>
                   </div>
@@ -118,7 +118,7 @@ export function PortfolioConstruction() {
                     <div className="shrink-0 rounded-xl p-2 bg-white/15 border border-white/20 backdrop-blur-sm">
                       <item.icon className="w-6 h-6 dark:text-white" />
                     </div>
-                    <p className="text-lg leading-6 dark:text-white/90">
+                    <p className="text-lg leading-6 text-slate-700 dark:text-white/90">
                       {item.desc}
                     </p>
                   </div>

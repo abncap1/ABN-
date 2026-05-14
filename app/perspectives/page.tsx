@@ -96,13 +96,13 @@ const videos: VideoData[] = [
     title: "Investment Strategy",
   },
   {
-    id: "LsV5dfvxwTGM",
-    embedUrl: "https://www.youtube.com/embed/fEroxqDOaps?si=lxmzU5nc97dBheIf",
+    id: "fEroxqDOaps",
+    embedUrl: "https://www.youtube.com/embed/fEroxqDOaps",
     title: "Portfolio Updates",
   },
   {
-    id: "fEroxqDOaps",
-    embedUrl: "https://www.youtube.com/embed/UbfrZ3zCk0I?si=V7bSmmY5L7TH0FWi",
+    id: "UbfrZ3zCk0I",
+    embedUrl: "https://www.youtube.com/embed/UbfrZ3zCk0I",
     title: "Founder Interview",
   }
 ];
@@ -159,12 +159,11 @@ export default function PerspectivePage() {
                 >
                   <div className="p-0">
                     <div className="relative aspect-video bg-slate-100 dark:bg-slate-700 rounded-t-lg overflow-hidden">
-                      <iframe
-                        src={`${video.embedUrl}?rel=0&modestbranding=1`}
-                        className="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title={video.title || `Video ${video.id}`}
+                      <img
+                        src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                        alt={`Thumbnail for ${video.title}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <div className="bg-blue-600/90 text-white rounded-full p-4">
@@ -280,6 +279,7 @@ export default function PerspectivePage() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 title={selectedVideo.title}
+                aria-label={`YouTube video player: ${selectedVideo.title}`}
               />
             </div>
           </div>

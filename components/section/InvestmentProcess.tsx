@@ -92,7 +92,7 @@ export function InvestmentProcess() {
               title={["Investment", "Process"]}
               caption="Stepwise, evidence-led decision making"
               gradient1="from-slate-600 to-slate-800"
-              gradient2="from-blue-600 via-indigo-600 to-purple-600"
+              gradient2="from-blue-600 via-indigo-600 to-amber-600"
             />
 
             <div className="relative pl-6">
@@ -119,9 +119,9 @@ export function InvestmentProcess() {
                     <div className="group rounded-2xl p-6 md:p-7 backdrop-blur-md bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/10 shadow-xl ring-1 ring-inset ring-slate-900/5 dark:ring-white/10">
                       <div className="flex items-start gap-4 mb-3">
                         <s.icon className="w-8 h-8 text-amber-500 mt-0.5 flex-shrink-0" />
-                        <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">{s.title}</h3>
+                        <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{s.title}</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-700 dark:text-slate-300">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600 dark:text-slate-300">
                         <ul className="space-y-1 list-disc list-inside">
                           {s.bullets1.map((b, j) => (
                             <li key={j}>{b}</li>

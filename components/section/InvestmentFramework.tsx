@@ -105,11 +105,11 @@ export function InvestmentFramework() {
       id="investment-framework"
       className="relative overflow-hidden min-h-[100dvh] w-full py-20 lg:py-28"
     >
-      {/* Ambient gradient background */}
+      {/* Professional Indigo & Amber background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-50 via-rose-100 to-slate-100 dark:from-slate-900 dark:via-amber-950 dark:to-rose-950" />
-        <div className="absolute -top-24 -right-16 h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-blue-500/10 via-indigo-500/15 to-amber-400/10 blur-3xl" />
-        <div className="absolute -bottom-32 -left-20 h-[24rem] w-[24rem] rounded-full bg-gradient-to-tr from-indigo-500/10 via-blue-500/10 to-amber-400/10 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-slate-50 to-blue-50 dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950" />
+        <div className="absolute -top-24 -right-16 h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-indigo-500/20 via-blue-500/15 to-amber-400/10 blur-3xl" />
+        <div className="absolute -bottom-32 -left-20 h-[24rem] w-[24rem] rounded-full bg-gradient-to-tr from-blue-500/15 via-indigo-500/15 to-amber-400/10 blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +126,7 @@ export function InvestmentFramework() {
             title={["Investment", "Framework"]}
             caption="A balanced view of what we can and cannot control"
             gradient1="from-slate-600 to-slate-800"
-            gradient2="from-blue-600 via-indigo-600 to-purple-600"
+            gradient2="from-blue-600 via-indigo-600 to-amber-600"
           />
 
           {/* Flow line */}
@@ -143,8 +143,8 @@ export function InvestmentFramework() {
             >
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="h-2 w-2 rounded-full bg-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.18)]" />
-                <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">
-                  Uncontrollables <span className="text-amber-700 dark:text-amber-500">("Value")</span>
+                <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white">
+                  Uncontrollables <span className="text-amber-700 dark:text-amber-400">("Value")</span>
                 </h3>
               </div>
 
@@ -164,8 +164,8 @@ export function InvestmentFramework() {
                     >
                       <item.icon className="w-6 h-6 mb-3 text-indigo-600 dark:text-indigo-400" />
                       <p className="text-lg uppercase tracking-wide text-slate-500 dark:text-slate-400">{item.tag}</p>
-                      <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100">{item.title}</h4>
-                      <p className="mt-1 text-lg text-slate-600 dark:text-slate-400">{item.desc}</p>
+                      <h4 className="text-xl font-semibold text-slate-900 dark:text-white">{item.title}</h4>
+                      <p className="mt-1 text-lg text-slate-600 dark:text-slate-300">{item.desc}</p>
                     </motion.div>
                   </li>
                 ))}
@@ -183,8 +183,8 @@ export function InvestmentFramework() {
             >
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="h-2 w-2 rounded-full bg-amber-500 shadow-[0_0_0_4px_rgba(245,158,11,0.18)]" />
-                <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">
-                  Controllables <span className="text-amber-700 dark:text-amber-500">("Price")</span>
+                <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white">
+                  Controllables <span className="text-amber-700 dark:text-amber-400">("Price")</span>
                 </h3>
               </div>
 

@@ -32,11 +32,11 @@ export function WhyUs() {
       id="why-choose-us"
       className="relative overflow-hidden min-h-[100dvh]"
     >
-      {/* Warm ambient background */}
+      {/* Professional Indigo & Amber background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-50 via-orange-50 to-rose-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950" />
-        <div className="absolute -top-24 -left-24 h-[28rem] w-[28rem] rounded-full blur-3xl bg-gradient-to-br from-amber-400/25 via-orange-500/20 to-rose-400/20" />
-        <div className="absolute -bottom-24 -right-16 h-[24rem] w-[24rem] rounded-full blur-3xl bg-gradient-to-tr from-orange-400/20 via-amber-400/20 to-blue-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-slate-50 to-blue-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950" />
+        <div className="absolute -top-24 -left-24 h-[28rem] w-[28rem] rounded-full blur-3xl bg-gradient-to-br from-indigo-500/20 via-blue-500/15 to-amber-400/10" />
+        <div className="absolute -bottom-24 -right-16 h-[24rem] w-[24rem] rounded-full blur-3xl bg-gradient-to-tr from-blue-500/15 via-indigo-500/15 to-amber-400/10" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
@@ -56,7 +56,7 @@ export function WhyUs() {
               title={["Why", "Choose Us"]}
               caption="Warm, human, and execution-focused advantages"
               gradient1="from-slate-600 to-slate-800"
-              gradient2="from-amber-600 via-orange-600 to-rose-600"
+              gradient2="from-blue-600 via-indigo-600 to-amber-600"
             />
 
             {/* Accent chip / quote */}
@@ -83,8 +83,8 @@ export function WhyUs() {
                   >
                     <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-br from-amber-500/10 to-transparent" />
                     <item.icon className="relative w-8 h-8 mb-4 text-amber-600 dark:text-amber-400" />
-                    <h3 className="relative text-xl font-semibold text-slate-900 dark:text-slate-100">{item.title}</h3>
-                    <p className="relative mt-1 text-lg leading-6 text-slate-700 dark:text-slate-300">{item.desc}</p>
+                    <h3 className="relative text-xl font-semibold text-slate-900 dark:text-white">{item.title}</h3>
+                    <p className="relative mt-1 text-lg leading-6 text-slate-600 dark:text-slate-300">{item.desc}</p>
                   </motion.article>
                 </li>
               ))}
@@ -110,7 +110,7 @@ export function WhyUs() {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-slate-900/0 to-transparent" />
-              <figcaption className="absolute bottom-4 left-4 right-4 text-center text-slate-900 dark:text-slate-100 bg-white/85 dark:bg-slate-800/80 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border border-white/40 dark:border-white/10">
+              <figcaption className="absolute bottom-4 left-4 right-4 text-center text-white dark:text-slate-100 bg-white/85 dark:bg-slate-800/80 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border border-white/40 dark:border-white/10">
                 Relationships-first investing, powered by experience
               </figcaption>
             </motion.figure>

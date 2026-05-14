@@ -77,10 +77,10 @@ export function GuidingPrinciples() {
                 >
                   <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-br from-white/40 to-transparent dark:from-white/10" />
                   <item.icon className="relative w-8 h-8 mb-4 text-indigo-600 dark:text-indigo-400" />
-                  <h2 className="relative text-xl font-semibold text-slate-900 dark:text-slate-100">
+                  <h3 className="relative text-xl font-semibold text-slate-900 dark:text-white">
                     {item.title}
-                  </h2>
-                  <p className="relative mt-1 text-lg leading-6 text-slate-600 dark:text-slate-400">
+                  </h3>
+                  <p className="relative mt-1 text-lg leading-6 text-slate-600 dark:text-slate-300">
                     {item.desc}
                   </p>
                 </motion.div>
