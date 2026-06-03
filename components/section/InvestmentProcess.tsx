@@ -66,7 +66,7 @@ export function InvestmentProcess() {
                 transition={{ delay: i * 0.08 }}
                 className="relative"
               >
-                <div className="relative w-16 h-16 rounded-full grid place-items-center text-base font-semibold text-white shadow-xl ring-1 ring-white/20 backdrop-blur-md bg-gradient-to-br from-indigo-500 to-blue-600">
+                <div className="relative w-16 h-16 rounded-full grid place-items-center text-base font-semibold text-white shadow-xl ring-1 ring-white/20 backdrop-blur-md bg-gradient-to-br from-indigo-500 to-blue-800">
                   {n}
                   <div className="pointer-events-none absolute inset-0 rounded-full bg-white/20 opacity-30" />
                 </div>
