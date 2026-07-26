@@ -136,6 +136,20 @@ const disclosureDocuments = [
     iconColor: "text-cyan-600",
     downloadUrl: "https://drive.google.com/file/d/1ZZ_l0S3riR2SCvq1jEDbOZUT6VB3OmgP/view?usp=drive_link",
   },
+  {
+    id: "empanelled-pms-distributors",
+    title: "Empanelled PMS Distributors",
+    description:
+      "Details of empanelled PMS distributors, including distributor name, APRN, contact information, address, and date of empanelment.",
+    icon: Users,
+    status: "Available",
+    category: "Regulatory Documents",
+    size: "1.2 MB",
+    lastUpdated: "2024-01-18",
+    color: "from-blue-500/10 to-blue-600/10",
+    iconColor: "text-blue-600",
+    downloadUrl: "https://docs.google.com/spreadsheets/d/1eeiZFsKkiRtt6z_zaVLnr_1pJmU7AyWdrVZNVRaXvmU/edit?usp=sharing",
+  },
 ];
 
 export default function Disclosures() {
